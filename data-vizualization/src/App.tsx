@@ -1,31 +1,27 @@
 import { ReactElement } from 'react';
-import './App.css';
-
-// router
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-
-import TelefoniaFixe from './components/TelefoniaFixe';
-import { Telefonia } from './components/App';
-import { NdarjaPerdoruesve } from './components/NdarjaPerdoruesve';
-import { NdarjaTregut } from './components/NdarjaTregut';
-import { ShperndarjaPerdoruesve } from './components/ShperndarjaPerdoruesve';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import TelefoniaFixe from './components/telefonia-fixe/TelefoniaFixe';
+import Navbar from './components/Navbar';
+import { MDBContainer } from 'mdb-react-ui-kit';
+import TelefoniaMobile from './components/telefonia-mobile/TelefoniaMobile';
 
 export const App = (): ReactElement => (
-  <Router>
-    <Routes>
-      <Route path="/" element={<TelefoniaFixe />} />
-      <Route
-        path="/telefonia-fixe"
-        element={
-          <>
-            <Telefonia />
-            <NdarjaPerdoruesve />
-            <NdarjaTregut />
-            <ShperndarjaPerdoruesve />
-          </>
-        }
-      />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-  </Router>
+  <>
+    <Navbar />
+
+    <MDBContainer>
+      <Routes>
+        <Route path='/' element={<TelefoniaFixe />} />
+        <Route
+          path='/telefonia-fixe'
+          element={<TelefoniaFixe />}
+        />
+        <Route
+          path='/telefonia-mobile'
+          element={<TelefoniaMobile />}
+        />
+        <Route path='*' element={<Navigate to='/' replace />} />
+      </Routes>
+    </MDBContainer>
+  </>
 );
