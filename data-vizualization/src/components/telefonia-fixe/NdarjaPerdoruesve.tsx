@@ -1,16 +1,15 @@
-import { useRef, useEffect, FC, useState } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import {
-  Chart as ChartJS,
-  LinearScale,
-  CategoryScale,
   BarElement,
-  PointElement,
-  LineElement,
+  CategoryScale,
+  Chart as ChartJS,
   Legend,
-  Tooltip,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Tooltip
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
-import faker from 'faker';
 
 ChartJS.register(
   LinearScale,
@@ -38,16 +37,16 @@ function triggerTooltip(chart: ChartJS | null) {
       [
         {
           datasetIndex: 0,
-          index: 2,
+          index: 2
         },
         {
           datasetIndex: 1,
-          index: 2,
-        },
+          index: 2
+        }
       ],
       {
         x: (chartArea.left + chartArea.right) / 2,
-        y: (chartArea.top + chartArea.bottom) / 2,
+        y: (chartArea.top + chartArea.bottom) / 2
       }
     );
   }
@@ -90,17 +89,17 @@ export const NdarjaPerdoruesve: FC = () => {
     'TM3 2021',
     'TM4 2021',
     'TM1 2022',
-    'TM2 2022',
+    'TM2 2022'
   ];
 
   const individual = [
     38306, 37394, 35656, 34082, 31741, 47781, 46254, 44292, 42463, 40857, 39116, 37568, 36104,
-    35617, 34758, 33923, 32303, 31749, 29967, 2886, 28025, 27445, 26874, 25699, 25464, 24308,
+    35617, 34758, 33923, 32303, 31749, 29967, 2886, 28025, 27445, 26874, 25699, 25464, 24308
   ];
 
   const privat = [
     19026, 19262, 19327, 18929, 19211, 18746, 19593, 19524, 19585, 21995, 2234, 2227, 22052, 22057,
-    21827, 21902, 22137, 45547, 46872, 47195, 47176, 47001, 47158, 47134, 47354, 47513,
+    21827, 21902, 22137, 45547, 46872, 47195, 47176, 47001, 47158, 47134, 47354, 47513
   ];
 
   const data = {
@@ -112,7 +111,7 @@ export const NdarjaPerdoruesve: FC = () => {
         borderColor: 'rgb(255, 99, 132)',
         borderWidth: 2,
         fill: false,
-        data: labels.map((value, index) => individual[index]),
+        data: labels.map((value, index) => individual[index])
       },
       {
         type: 'line' as const,
@@ -120,15 +119,15 @@ export const NdarjaPerdoruesve: FC = () => {
         backgroundColor: 'rgb(75, 192, 192)',
         data: labels.map((value, index) => privat[index]),
         borderColor: 'rgb(75, 192, 192)',
-        borderWidth: 2,
-      },
-    ],
+        borderWidth: 2
+      }
+    ]
   };
 
   return (
-    <div style={{ width: '1400px', color: 'blue', lineHeight: 10, padding: 20 }}>
-      <h1 style={{ margin: 0, lineHeight: 2 }}>Ndarja e përdoruesve</h1>
-      <Chart ref={chartRef} type="bar" data={data} />
+    <div style={{ lineHeight: 10, padding: 20 }}>
+      <h5 style={{ margin: 0, lineHeight: 2 }}>Ndarja e përdoruesve</h5>
+      <Chart ref={chartRef} type='bar' data={data} />
     </div>
   );
 };

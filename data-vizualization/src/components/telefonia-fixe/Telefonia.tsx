@@ -1,18 +1,17 @@
-import { useRef, useEffect, FC, useState } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import {
-  Chart as ChartJS,
-  LinearScale,
-  CategoryScale,
   BarElement,
-  PointElement,
-  LineElement,
+  CategoryScale,
+  Chart as ChartJS,
   Legend,
-  Tooltip,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Tooltip
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
 import faker from 'faker';
 
-import axios from 'axios';
 
 ChartJS.register(
   LinearScale,
@@ -40,16 +39,16 @@ function triggerTooltip(chart: ChartJS | null) {
       [
         {
           datasetIndex: 0,
-          index: 2,
+          index: 2
         },
         {
           datasetIndex: 1,
-          index: 2,
-        },
+          index: 2
+        }
       ],
       {
         x: (chartArea.left + chartArea.right) / 2,
-        y: (chartArea.top + chartArea.bottom) / 2,
+        y: (chartArea.top + chartArea.bottom) / 2
       }
     );
   }
@@ -89,7 +88,7 @@ export const Telefonia: FC = () => {
     'TM3 2021',
     'TM4-2021',
     'TM1-2022',
-    'TM2-2022',
+    'TM2-2022'
   ];
 
   const tk = [
@@ -99,7 +98,7 @@ export const Telefonia: FC = () => {
     1978303.54, 1802161.92, 1726388.63, 1138515.68, 1018947.66, 922053, 903603.17, 987826.93,
     848315.03, 855404.44, 901512.76, 868814.45, 851490.05, 749135.03, 897914.23, 921751, 916769,
     959525, 975867, 990951, 921956, 855164, 778663, 947711, 608798, 470103, 499417, 718229, 691820,
-    691820, 821485,
+    691820, 821485
   ];
 
   const ipko = [
@@ -107,14 +106,14 @@ export const Telefonia: FC = () => {
     158009, 230788, 242964, 235595.58, 181459, 190493, 164240.8, 174701.1, 184272.95, 199995.15,
     172856, 161141.82, 98770, 105147, 89704, 95588, 88203, 91846, 84777, 104951, 84043, 81256,
     84465, 90472, 112873, 103749, 104604, 116505, 130602, 149888, 110035, 101037, 122608, 134305,
-    125867, 88110, 104379, 103817, 110905, 86580, 105236, 127154, 91083, 92910,
+    125867, 88110, 104379, 103817, 110905, 86580, 105236, 127154, 91083, 92910
   ];
 
   const kujtesa = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1227, 1500,
     1763.04, 4575.58, 6281.48, 8295.3, 9449.25, 10944.95, 14014.87, 14388.57, 16553.17, 16901.89,
     17577.96, 18263.41, 19541.85, 21202.9, 21424, 21637, 22286, 21225, 24964, 20695, 5781, 9379,
-    15644, 15917, 16139, 16540, 15027, 14780, 20226,
+    15644, 15917, 16139, 16540, 15027, 14780, 20226
   ];
 
   const data = {
@@ -126,7 +125,7 @@ export const Telefonia: FC = () => {
         borderColor: 'rgb(255, 99, 132)',
         borderWidth: 2,
         fill: false,
-        data: labels.map((value, index) => tk[index]),
+        data: labels.map((value, index) => tk[index])
       },
       {
         type: 'bar' as const,
@@ -134,27 +133,27 @@ export const Telefonia: FC = () => {
         backgroundColor: 'rgb(75, 192, 192)',
         data: labels.map((value, index) => ipko[index]),
         borderColor: 'white',
-        borderWidth: 2,
+        borderWidth: 2
       },
       {
         type: 'bar' as const,
         label: 'Kujtesa',
         backgroundColor: 'rgb(53, 162, 235)',
-        data: labels.map((value, index) => kujtesa[index]),
+        data: labels.map((value, index) => kujtesa[index])
       },
       {
         type: 'bar' as const,
         label: 'MTS DOO',
         backgroundColor: 'rgb(53, 162, 135)',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      },
-    ],
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 }))
+      }
+    ]
   };
 
   return (
-    <div style={{ width: '1400px', color: 'blue', lineHeight: 10, padding: 20 }}>
-      <h1 style={{ margin: 0, lineHeight: 2 }}>Të ardhurat për operatorë</h1>
-      <Chart ref={chartRef} type="bar" data={data} />
+    <div style={{ lineHeight: 10, padding: 20 }}>
+      <h5 style={{ margin: 0, lineHeight: 2 }}>Të ardhurat për operatorë</h5>
+      <Chart ref={chartRef} type='bar' data={data} />
     </div>
   );
 };
