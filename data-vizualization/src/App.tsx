@@ -4,6 +4,7 @@ import TelefoniaFixe from './components/telefonia-fixe/TelefoniaFixe';
 import Navbar from './components/Navbar';
 import { MDBContainer } from 'mdb-react-ui-kit';
 import TelefoniaMobile from './components/telefonia-mobile/TelefoniaMobile';
+import ISP from './components/ISP/ISP';
 
 export const App = (): ReactElement => (
   <>
@@ -19,6 +20,10 @@ export const App = (): ReactElement => (
         <Route
           path='/telefonia-mobile'
           element={<TelefoniaMobile />}
+        />
+         <Route
+          path='/isp'
+          element={<ISP />}
         />
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>

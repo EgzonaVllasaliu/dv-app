@@ -11,8 +11,11 @@ export default function Navbar() {
           <MDBNavbarItem className={'mr-2'}>
             <Link to='/telefonia-fixe'>Telefonia Fikse</Link>
           </MDBNavbarItem>
-          <MDBNavbarItem>
+          <MDBNavbarItem className={'mr-2'}>
             <Link to='/telefonia-mobile'>Telefonia Mobile</Link>
+          </MDBNavbarItem>
+          <MDBNavbarItem >
+            <Link to='/isp'>ISP</Link>
           </MDBNavbarItem>
         </MDBNavbarNav>
       </MDBContainer>
