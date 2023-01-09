@@ -1,5 +1,6 @@
 import { FC, ReactElement } from 'react';
 import { TeHyrat } from './TeHyrat';
+import { ISPProviders } from './ISPProviders';
 // import { Telefonia } from './Telefonia';
 // import { NdarjaPerdoruesve } from './NdarjaPerdoruesve';
 // import { ShperndarjaPerdoruesve } from './ShperndarjaPerdoruesve';
@@ -8,7 +9,9 @@ import { TeHyrat } from './TeHyrat';
 const ISP: FC = (): ReactElement => (
   <>
     <h1>ISP</h1>
+    <ISPProviders/>
     <TeHyrat/>
+
     {/* <Telefonia />
     <NdarjaPerdoruesve />
     <NdarjaTregut />

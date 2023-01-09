@@ -12,6 +12,9 @@ import {
 import { Chart } from 'react-chartjs-2';
 import faker from 'faker';
 import axios from 'axios';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { FormControl, InputLabel, SelectChangeEvent } from '@mui/material';
 
 
 ChartJS.register(
@@ -27,77 +30,56 @@ ChartJS.register(
 
 export const TeHyrat: FC = () => {
     const chartRef = useRef<ChartJS>(null);
+    const [provider, setProvider] = useState<string[]>([]);
+    const [labels, setLabels] = useState(["TM1 2017"])
+    const [selectedProvider, setSelectedProvider] = useState<string[]>([]);
+
+    const handleProviderChange = (event: SelectChangeEvent<typeof selectedProvider>) => {
+      const {
+        target: { value },
+      } = event;
+      setSelectedProvider(
+        // On autofill we get a stringified value.
+        typeof value === 'string' ? value.split(',') : value,
+      );
+    };
   
-    useEffect(() => {
-      const chart = chartRef.current;
+    
   
-      
-    }, []);
-  
-    const labels = [
-      'TM1 2017',
-      'TM2 2017',
-      'TM3 2017',
-      'TM4 2017',
-      'TM1 2018',
-      'TM2 2018',
-      'TM3 2018 ',
-      'TM4 2018',
-      'TM4 2018',
-      'TM1 2019',
-      'TM2 2019',
-      'TM3 2019',
-      'TM4 2019',
-      'TM1 2020',
-      'TM2 2020',
-      'TM3 2020',
-      'TM4 2020 ',
-      'TM1 2021 ',
-      'TM2 2021',
-      'TM3 2021',
-      'TM4-2021',
-      'TM1-2022',
-      'TM2-2022'
-    ];
-  
-    const tk = [
-      6253401, 5965977, 5899205, 5630683, 5902018, 4539316, 4726248, 4461703, 4577338, 6042174,
-      6020550, 6394784, 6218118, 5725904, 4858497, 5220935, 4494485, 4396581, 4406866, 4389495,
-      4261486, 4131095, 4163729.05, 4323183.66, 4188850.47, 3957444.43, 2148869.16, 2042473.09,
-      1978303.54, 1802161.92, 1726388.63, 1138515.68, 1018947.66, 922053, 903603.17, 987826.93,
-      848315.03, 855404.44, 901512.76, 868814.45, 851490.05, 749135.03, 897914.23, 921751, 916769,
-      959525, 975867, 990951, 921956, 855164, 778663, 947711, 608798, 470103, 499417, 718229, 691820,
-      691820, 821485
-    ];
-  
+    
     const data = {
-        labels,
-        datasets: [
-          {
-            type: 'line' as const,
-            label: 'Telekomi i Kosoves Te Hyrat',
-            borderColor: 'rgb(255, 99, 132)',
-            borderWidth: 2,
-            fill: false,
-            data: labels.map((value, index) => tk[index])
-          }
-          // {
-          //   type: 'bar' as const,
-          //   label: 'Ipko',
-          //   backgroundColor: 'rgb(75, 192, 192)',
-          //   data: labels.map((value, index) => ipko[index]),
-          //   borderColor: 'white',
-          //   borderWidth: 2
-          // },
-        ]
-      };
+      labels,
+      datasets: [
+        {
+          type: 'line' as const,
+          label: '',
+          borderColor: 'rgb(255, 99, 132)',
+          borderWidth: 2,
+          fill: false,
+          data: [0]
+        }
+      ]
+    };
 
     const [data1, setData1] = useState(data) ;
     const [data2, setData2] = useState(data) ;
+    
 
     // let data1 : number []= []
     try{ 
         useEffect(() => {
+          axios.get('http://localhost:5000/investimet-isp/api/investimet/get_time')
+          .then(response => {
+            
+            // labels.push(response.data);
+            let labels = [...response.data]
+            setLabels(labels);
+
+            axios.get('http://localhost:5000/investimet-isp/api/investimet/get_operators')
+            .then(response => {
+              setProvider(response.data);
+            })
+
             axios.get('http://localhost:5000/investimet-isp/api/investimet/all_data/kujtesa')
         .then((res_1) => {
 
@@ -126,20 +108,10 @@ export const TeHyrat: FC = () => {
                   }
 
                   let arr4 = [];
-                  // arr4.push(0);
-                  // arr4.push(0);
-                  // arr4.push(0);
                   for(let i = 0; i < res_4.data.data.length; i++){
                     arr4.push(res_4.data.data[i].income);
                   }
-    
-    
-      
-                  // let labels : string[] = [];
-                  // for(let i = 0; i < res_1.data.data.length; i++){
-                  //     arr.push(res_1.data.data[i].year);
-                  // }
-      
+          
                   let arr_investimet = [];
                   for(let i = 0; i < res_1.data.data.length; i++){
                       arr_investimet.push(res_1.data.data[i].investments as number);
@@ -225,6 +197,7 @@ export const TeHyrat: FC = () => {
             
             
         })
+          })
         .catch((err) => {
             console.log(err);
         })
@@ -236,9 +209,10 @@ export const TeHyrat: FC = () => {
     }
     if(!data) return null;
     return (
-      <div style={{ lineHeight: 10, padding: 20 }}>
+      <div style={{ lineHeight: 10, padding: 20, }}>
         {/* <h5 style={{ margin: 0, lineHeight: 2 }}>Të ardhurat për operatorë</h5> */}
         {/* <Chart ref={chartRef} type='bar' data={data} /> */}
+        
         <h5 style={{ margin: 0, lineHeight: 2 }}>Të ardhurat për operatorë</h5>
         <Chart ref={chartRef} type='bar' data={data1} />
         <h5 style={{ margin: 0, lineHeight: 2 }}>Investimet për operatorë</h5>
