@@ -32,21 +32,7 @@ export const TeHyrat: FC = () => {
     const chartRef = useRef<ChartJS>(null);
     const [provider, setProvider] = useState<string[]>([]);
     const [labels, setLabels] = useState(["TM1 2017"])
-    const [selectedProvider, setSelectedProvider] = useState<string[]>([]);
 
-    const handleProviderChange = (event: SelectChangeEvent<typeof selectedProvider>) => {
-      const {
-        target: { value },
-      } = event;
-      setSelectedProvider(
-        // On autofill we get a stringified value.
-        typeof value === 'string' ? value.split(',') : value,
-      );
-    };
-  
-    
-  
-    
     const data = {
       labels,
       datasets: [
