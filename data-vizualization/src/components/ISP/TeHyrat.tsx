@@ -126,9 +126,9 @@ export const TeHyrat: FC = () => {
                   }
 
                   let arr4 = [];
-                  arr4.push(0);
-                  arr4.push(0);
-                  arr4.push(0);
+                  // arr4.push(0);
+                  // arr4.push(0);
+                  // arr4.push(0);
                   for(let i = 0; i < res_4.data.data.length; i++){
                     arr4.push(res_4.data.data[i].income);
                   }
