@@ -22,7 +22,7 @@ ChartJS.register(
   Tooltip
 );
 
-export function NumriPerdoruesve() {
+export function NumriPerdoruesveTotal() {
   const chartRef = useRef<ChartJS>(null);
   const [labelsArray, setLabelsArray] = useState([])
   const [valaValues, setValaValues] = useState([]) 
@@ -32,7 +32,7 @@ export function NumriPerdoruesve() {
 
   try{ 
     useEffect(() => {
-        axios.get('http://localhost:5000/telefonia-mobile/api/sheet/Numri_perdoruesve_me_kontrate')
+        axios.get('http://localhost:5000/telefonia-mobile/api/sheet/Numri_perdoruesve_total')
     .then((res_1) => {
       setLabelsArray(res_1.data.sheet.data[0])
       setValaValues(res_1.data.sheet.data[1])
@@ -99,7 +99,7 @@ const data = {
 
   return <>
     <div style={{ lineHeight: 10, padding: 20 }}>
-      <h5 style={{ margin: 0, lineHeight: 2 }}>Numri i përdoruesve me kontratë</h5>
+      <h5 style={{ margin: 0, lineHeight: 2 }}>Numri total i përdoruesve</h5>
       <Chart ref={chartRef} type='bar' data={data} />
     </div>
   </>;

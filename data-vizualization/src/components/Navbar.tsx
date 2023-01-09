@@ -30,10 +30,10 @@ export default function Navbar() {
               <MDBDropdown group className='shadow-0'>
                 <MDBDropdownToggle color='light'>Telefonia Mobile</MDBDropdownToggle>
                   <MDBDropdownMenu>
-                    <Link to='/megabytes'><MDBDropdownItem link>Megabytes</MDBDropdownItem></Link>
-                    <Link to='/nr-perdoruesve'><MDBDropdownItem link>Numri i perdoruesve</MDBDropdownItem></Link>
-                    <Link to='/te-hyrat'><MDBDropdownItem link>Te hyrat</MDBDropdownItem></Link>
-                    <Link to='/trafiku'><MDBDropdownItem link>Trafiku</MDBDropdownItem></Link>
+                    <Link to='/telefonia-mobile/megabytes'><MDBDropdownItem link>Megabytes</MDBDropdownItem></Link>
+                    <Link to='/telefonia-mobile/nr-perdoruesve'><MDBDropdownItem link>Numri i perdoruesve</MDBDropdownItem></Link>
+                    <Link to='/telefonia-mobile/te-hyrat'><MDBDropdownItem link>Te hyrat</MDBDropdownItem></Link>
+                    <Link to='/telefonia-mobile/trafiku'><MDBDropdownItem link>Trafiku</MDBDropdownItem></Link>
                   </MDBDropdownMenu>
               </MDBDropdown>
           </MDBNavbarItem>
