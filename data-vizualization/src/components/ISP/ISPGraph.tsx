@@ -32,7 +32,9 @@ ChartJS.register(
 
 interface Props {
   comparison : string,
-  providers : string[]
+  providers : string[],
+  timeFrom : string,
+  timeTo : string,
 }
 
 export const ISPGraph = (props : Props) => {
@@ -101,10 +103,10 @@ export const ISPGraph = (props : Props) => {
 
     
     useEffect(() => {
-
       axios.get('http://localhost:5000/investimet-isp/api/investimet/get_time')
       .then(response => {
-        let labels = response.data;
+        let time_array : string[] = response.data;
+        let labels : string [] = response.data;
         setLabels(labels);
 
         let promise_array : Promise<apiData>[] = 
@@ -141,6 +143,14 @@ export const ISPGraph = (props : Props) => {
               val_data.push(Number((block as any)[props.comparison]))
             })
 
+            let indexTimeFrom = time_array.indexOf(props.timeFrom);
+            let indexTimeTo = time_array.indexOf(props.timeTo);
+
+            val_data = val_data.filter((row, index) => {
+              if(index >= indexTimeFrom && index <= indexTimeTo){
+                return row;
+              }
+            })
              chartDatasets.push(
                 {
                     type: 'line',
@@ -153,8 +163,13 @@ export const ISPGraph = (props : Props) => {
               )
             
           })
-          
-         
+          let indexTimeFrom = time_array.indexOf(props.timeFrom);
+          let indexTimeTo = time_array.indexOf(props.timeTo);
+          labels = labels.filter((row, index) => {
+            if(index >= indexTimeFrom && index <= indexTimeTo){
+              return row;
+            }  
+          })
           setData1({
             labels,
             datasets:chartDatasets

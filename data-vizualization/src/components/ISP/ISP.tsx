@@ -3,6 +3,7 @@ import { TeHyrat } from './TeHyrat';
 import { ISPProviders } from './ISPProviders';
 import { ISPGraph } from './ISPGraph';
 import { ChooseComparisonType } from './ChooseComparisonType';
+import { ChooseTimeline } from './ChooseTimeline';
 // import ISPGraph from './ISPGraph';
 // import ISPProviders from './ISPProviders';
 import { useSearchParams } from 'react-router-dom';
@@ -16,6 +17,9 @@ import { useSearchParams } from 'react-router-dom';
 const ISP: FC = (): ReactElement => {
   const [providers, setProviders] = useState<string[]>([]);
   const [comparisons,setComparisons] = useState<string>("");
+  const [timeFrom, setTimeFrom] = useState<string>("TM1 2017")
+  const [timeTo, setTimeTo] = useState<string>("TM2 2022")
+
   
   const setSelectedProviders = (value : string []) : String[] => {
       console.log(value)
@@ -26,7 +30,17 @@ const ISP: FC = (): ReactElement => {
   const setSelectedComparison = (value : string) => {
     setComparisons(value)
     console.log("Comparisons : ",value);
-  }  
+  }
+
+  const handleSetTimeFrom = (value : string) => {
+    setTimeFrom(value);    
+    console.log("Time From : ",value);
+  }
+  
+  const handleSetTimeTo = (value : string) => {
+    setTimeTo(value);
+    console.log("Time To : ",value);
+  } 
   
 
   return(
@@ -34,8 +48,9 @@ const ISP: FC = (): ReactElement => {
     <h1>ISP</h1>
     <ISPProviders parentCallback={setSelectedProviders} />
     <ChooseComparisonType parentCallback={setSelectedComparison}/>
+    <ChooseTimeline parentCallback1={handleSetTimeFrom} parentCallback2={handleSetTimeTo}/>
     {/* <TeHyrat providers={providers}/> */}
-    <ISPGraph comparison={comparisons+''} providers={[...providers]}/>
+    <ISPGraph comparison={comparisons+''} providers={[...providers]} timeFrom={timeFrom} timeTo={timeTo}/>
 
     {/* <Telefonia />
     <NdarjaPerdoruesve />
