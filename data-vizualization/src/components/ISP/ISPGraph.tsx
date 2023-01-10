@@ -140,7 +140,14 @@ export const ISPGraph = (props : Props) => {
             let val_data : number[] = [];
             // console.log('block block::'+props.comparison+':::::')
             val.data.data.forEach(block => {
-              val_data.push(Number((block as any)[props.comparison]))
+              if((block as any)[props.comparison] === ""){
+                console.log("Empyt Empty")
+                val_data.push(0.001)
+              }
+              else {
+                val_data.push(Number((block as any)[props.comparison]))  
+              }
+              
             })
 
             let indexTimeFrom = time_array.indexOf(props.timeFrom);
