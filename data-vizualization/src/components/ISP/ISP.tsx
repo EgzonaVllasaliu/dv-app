@@ -13,13 +13,21 @@ import { useSearchParams } from 'react-router-dom';
 
 
 const ISP: FC = (): ReactElement => {
-  const [proiders, setProviders] = useState<string[]>([]);
+  const [providers, setProviders] = useState<string[]>([]);
+  
+  const setSelectedProviders = (value : string []) : String[] => {
+      console.log(value)
+      setProviders([...value]);
+      return ["abc"]
+    }
+  
+
   return(
     <>
     <h1>ISP</h1>
-    <ISPProviders  />
-    <TeHyrat/>
-    {/* <ISPGraph /> */}
+    <ISPProviders parentCallback={setSelectedProviders} />
+    {/* <TeHyrat providers={providers}/> */}
+    <ISPGraph providers={[...providers]}/>
 
     {/* <Telefonia />
     <NdarjaPerdoruesve />

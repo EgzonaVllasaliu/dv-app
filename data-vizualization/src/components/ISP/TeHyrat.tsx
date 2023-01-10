@@ -27,8 +27,11 @@ ChartJS.register(
   Tooltip
 );
 
-
-export const TeHyrat: FC = () => {
+interface Props {
+  providers : string[]
+}
+export const TeHyrat = (props : Props) => {
+    console.log("From TeHyrat ::: ",props.providers);
     const chartRef = useRef<ChartJS>(null);
     const [provider, setProvider] = useState<string[]>([]);
     const [labels, setLabels] = useState(["TM1 2017"])

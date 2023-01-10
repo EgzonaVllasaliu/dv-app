@@ -2,9 +2,13 @@ import axios from 'axios';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { FormControl, InputLabel, SelectChangeEvent } from '@mui/material';
-import { FC, useEffect, useState } from 'react';
-
-export const ISPProviders : FC = () => {
+import { FC, ReactComponentElement, useEffect, useState } from 'react';
+import { isConstructorDeclaration } from 'typescript';
+interface Props {
+    parentCallback : (val : string []) => String []
+}
+export const ISPProviders = (props : Props) => {
+    
     const [provider, setProvider] = useState<string[]>([]);
     const [selectedProvider, setSelectedProvider] = useState<string[]>([]);
 
@@ -14,8 +18,10 @@ export const ISPProviders : FC = () => {
         } = event;
         setSelectedProvider(
           // On autofill we get a stringified value.
-          typeof value === 'string' ? value.split(',') : value,
+          typeof value === 'string' ? value.split(',') : value
         );
+        let op_list = typeof value === 'string' ? value.split(',') : value;
+        props.parentCallback(op_list);
       };
 
     useEffect(() => {
@@ -28,6 +34,7 @@ export const ISPProviders : FC = () => {
 
     return (
       <div style={{ display : "flex", alignItems : 'center', justifyContent : 'center', flexDirection : 'column'}}>
+        {/* <h1>{props.name}</h1> */}
         <div style={{width : "33%"}}>
             <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Provider</InputLabel>
