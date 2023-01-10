@@ -24,7 +24,7 @@ const ISP: FC = (): ReactElement => {
     }
 
   const setSelectedComparison = (value : string) => {
-    setComparisons(comparisons)
+    setComparisons(value)
     console.log("Comparisons : ",value);
   }  
   
@@ -35,7 +35,7 @@ const ISP: FC = (): ReactElement => {
     <ISPProviders parentCallback={setSelectedProviders} />
     <ChooseComparisonType parentCallback={setSelectedComparison}/>
     {/* <TeHyrat providers={providers}/> */}
-    <ISPGraph providers={[...providers]}/>
+    <ISPGraph comparison={comparisons+''} providers={[...providers]}/>
 
     {/* <Telefonia />
     <NdarjaPerdoruesve />

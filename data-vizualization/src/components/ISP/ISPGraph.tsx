@@ -15,6 +15,7 @@ import axios from 'axios';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { FormControl, InputLabel, SelectChangeEvent } from '@mui/material';
+import { IndexInfo, IndexType } from 'typescript';
 // import { isPropertySignature } from 'typescript';
 // import React from 'react';
 
@@ -30,11 +31,13 @@ ChartJS.register(
 );
 
 interface Props {
+  comparison : string,
   providers : string[]
 }
 
 export const ISPGraph = (props : Props) => {
-    console.log("From Graphs ---::::::::",props.providers)
+    // console.log("From Graphs ---::::::::",props.providers)
+    console.log("Props From Graphs ---::::::::",props)
     const chartRef = useRef<ChartJS>(null);
     const [labels, setLabels] = useState([""])
     const colors = [
@@ -57,6 +60,8 @@ export const ISPGraph = (props : Props) => {
       "rgb(100, 200, 200)",
       "rgb(100, 200, 255)",
     ]
+
+    const toCompare = props.comparison;
     
 
     const ispData = {
@@ -131,9 +136,9 @@ export const ISPGraph = (props : Props) => {
           let chartDatasets : typeof chartData.datasets = [];
           values.forEach((val, index) => {
             let val_data : number[] = [];
-
+            // console.log('block block::'+props.comparison+':::::')
             val.data.data.forEach(block => {
-              val_data.push(Number(block.income))
+              val_data.push(Number((block as any)[props.comparison]))
             })
 
              chartDatasets.push(
