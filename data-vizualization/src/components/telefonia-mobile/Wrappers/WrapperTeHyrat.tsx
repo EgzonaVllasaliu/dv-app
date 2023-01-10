@@ -1,19 +1,21 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useEffect, useState } from 'react';
+import { Toggle } from '../TeHyrat/Toggle';
+import { Outlet, useLocation, useOutlet } from 'react-router-dom';
 import { NdarjaTregutMobile } from '../TeHyrat/NdarjaTregutMobile';
 import { TeHyratEPergjithshme1216, TeHyratEPergjithshme1722 } from '../TeHyrat/TeHyratEPergjithshme';
-import { Toggle } from '../TeHyrat/Toggle';
-import { MDBContainer } from 'mdb-react-ui-kit';
 
-const TeHyrat: FC = (): ReactElement => (
-  <>
-  <Toggle/>
-  
-  <MDBContainer>
-    <NdarjaTregutMobile />
-    <TeHyratEPergjithshme1216 />
-    <TeHyratEPergjithshme1722 />
-  </MDBContainer>
+const TeHyrat = () => {
+  const outlet = useOutlet();
+
+  return <>
+    <Toggle/>
+
+    {outlet ? <Outlet/> : <>
+      <NdarjaTregutMobile />
+      <TeHyratEPergjithshme1216 />
+      <TeHyratEPergjithshme1722 />
+    </>}
   </>
-);
+};
 
 export default TeHyrat;

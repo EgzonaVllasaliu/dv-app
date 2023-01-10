@@ -23,7 +23,7 @@ ChartJS.register(
   Tooltip
 );
 
-export function NumriPerdoruesve() {
+export function NumriPerdoruesveKontrate() {
   const chartRef = useRef<ChartJS>(null);
   const [labelsArray, setLabelsArray] = useState([])
   const [valaValues, setValaValues] = useState([]) 

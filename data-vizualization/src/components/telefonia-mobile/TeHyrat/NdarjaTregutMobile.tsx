@@ -1,9 +1,10 @@
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import zoomPlugin from 'chartjs-plugin-zoom';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, zoomPlugin);
 
 export function NdarjaTregutMobile() {
   const [labelsArray, setLabelsArray] = useState([])
@@ -36,6 +37,26 @@ const valaMainValues = valaValues.filter((_, i) => i > 0);
 const ipkoMainValues = ipkoValues.filter((_, i) => i > 0);
 const zmobileMainValues = zmobileValues.filter((_, i) => i > 0);
 const d3MainValues = d3Values.filter((_, i) => i > 0);
+
+const options : any = {
+  responsive: true,
+  plugins: { 
+    legend: {
+      position: 'top' as const
+    },
+    zoom: {
+      zoom: { 
+        wheel: {
+        enabled: true,
+        },
+        pinch: {
+          enabled: true
+        },
+        mode: 'xy'
+      }
+    }
+  }
+};
 
 const data = {
   labels: filteretLabels,
@@ -77,14 +98,7 @@ const data = {
 
       <div style={{ color: 'blue', lineHeight: 10, padding: 20, margin: '0 auto' }}>
         <Bar
-          options={{
-            responsive: true,
-            plugins: {
-              legend: {
-                position: 'top' as const
-              }
-            }
-          }}
+          options={options}
           data={data}
         />
       </div>

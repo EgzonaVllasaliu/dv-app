@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
 import axios from 'axios';
+import zoomPlugin from 'chartjs-plugin-zoom';
 
 ChartJS.register(
   LinearScale,
@@ -29,6 +30,7 @@ export function TeHyratEPergjithshme1216() {
   const [ipkoValues, setIpkoValues] = useState([])
   const [zmobileValues, setZmobileValues] = useState([])
   const [mtsValues, setMtsValues] = useState([])
+  ChartJS.register(zoomPlugin);
 
   try{ 
     useEffect(() => {
@@ -54,6 +56,22 @@ const valaMainValues = valaValues.filter((_, i) => i > 0);
 const ipkoMainValues = ipkoValues.filter((_, i) => i > 0);
 const zmobileMainValues = zmobileValues.filter((_, i) => i > 0);
 const mtsMainValues = mtsValues.filter((_, i) => i > 0);
+
+const options : any = {
+  plugins: { 
+    zoom: {
+      zoom: { 
+        wheel: {
+        enabled: true,
+        },
+        pinch: {
+          enabled: true
+        },
+        mode: 'xy'
+      }
+    }
+  }
+};
 
 const data = {
   labels: filteretLabels,
@@ -97,13 +115,15 @@ const data = {
   return <>
     <div style={{ lineHeight: 10, padding: 20 }}>
       <h5 style={{ margin: 0, lineHeight: 2 }}>Të hyrat e pergjithshme - Periudha 2012-2016</h5>
-      <Chart ref={chartRef} type='bar' data={data} />
+      <Chart ref={chartRef} type='bar' data={data} options={options}/>
     </div>
   </>;
 }
 
 export function TeHyratEPergjithshme1722() {
   const chartRef = useRef<ChartJS>(null);
+  ChartJS.register(zoomPlugin);
+
   const [labelsArray, setLabelsArray] = useState([])
   const [valaValues, setValaValues] = useState([]) 
   const [ipkoValues, setIpkoValues] = useState([])
@@ -134,6 +154,22 @@ const valaMainValues = valaValues.filter((_, i) => i > 0);
 const ipkoMainValues = ipkoValues.filter((_, i) => i > 0);
 const zmobileMainValues = zmobileValues.filter((_, i) => i > 0);
 const mtsMainValues = mtsValues.filter((_, i) => i > 0);
+
+const options : any = {
+  plugins: { 
+    zoom: {
+      zoom: { 
+        wheel: {
+        enabled: true,
+        },
+        pinch: {
+          enabled: true
+        },
+        mode: 'xy'
+      }
+    }
+  }
+};
 
 const data = {
   labels: filteretLabels,
@@ -177,7 +213,7 @@ const data = {
   return <>
     <div style={{ lineHeight: 10, padding: 20 }}>
       <h5 style={{ margin: 0, lineHeight: 2 }}>Të hyrat e pergjithshme - Periudha 2017-2022</h5>
-      <Chart ref={chartRef} type='bar' data={data} />
+      <Chart ref={chartRef} type='bar' data={data} options={options} />
     </div>
   </>;
 }
