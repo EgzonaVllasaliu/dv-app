@@ -61,6 +61,8 @@ export const ISPGraph = (props : Props) => {
       "rgb(255, 150, 200)",
       "rgb(100, 200, 200)",
       "rgb(100, 200, 255)",
+      "rgb(20, 180, 35)",
+      "rgb(120, 10, 95)"
     ]
 
     const toCompare = props.comparison;

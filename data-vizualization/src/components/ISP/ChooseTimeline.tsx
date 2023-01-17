@@ -50,8 +50,11 @@ export const ChooseTimeline = (props : Props) => {
           target: { value },
         } = event;
         
-        setFromQuarter(value);
-        props.parentCallback1(value+' '+fromYear);
+        if(timeline.includes(value+' '+fromYear)){
+            setFromQuarter(value);
+            props.parentCallback1(value+' '+fromYear);    
+        }
+        
     };
 
     const handleFromYearChange = (event: SelectChangeEvent<typeof fromTime>) => {
@@ -59,8 +62,11 @@ export const ChooseTimeline = (props : Props) => {
           target: { value },
         } = event;
         
-        setFromYear(value);
-        props.parentCallback1(fromQuarter+' '+value);
+        if(timeline.includes(fromQuarter+' '+value)){
+            setFromYear(value);
+            props.parentCallback1(fromQuarter+' '+value);    
+        }
+        
     };
 
     const handleToQuarterChange = (event: SelectChangeEvent<typeof fromTime>) => {
@@ -68,8 +74,11 @@ export const ChooseTimeline = (props : Props) => {
           target: { value },
         } = event;
         
-        setToQuarter(value);
-        props.parentCallback2(value+' '+toYear);
+        if(timeline.includes(value+' '+toYear)){
+            setToQuarter(value);
+            props.parentCallback2(value+' '+toYear);    
+        }
+        
     };
 
     const handleToYearChange = (event: SelectChangeEvent<typeof fromTime>) => {
@@ -77,8 +86,11 @@ export const ChooseTimeline = (props : Props) => {
           target: { value },
         } = event;
         
-        setToYear(value);
-        props.parentCallback2(toQuarter+' '+value);
+        if(timeline.includes(toQuarter+' '+value)){
+            setToYear(value);
+            props.parentCallback2(toQuarter+' '+value);    
+        }
+        
     };
 
     useEffect(() => {
