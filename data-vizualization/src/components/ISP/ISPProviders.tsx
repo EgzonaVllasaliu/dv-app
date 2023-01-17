@@ -33,11 +33,11 @@ export const ISPProviders = (props : Props) => {
     ,[])
 
     return (
-      <div style={{ display : "flex", alignItems : 'center', justifyContent : 'center', flexDirection : 'column'}}>
+      <div style={{ display : "flex", alignItems : 'center', justifyContent : 'center', flexDirection : 'column',marginTop:"30px"}}>
         {/* <h1>{props.name}</h1> */}
         <div style={{width : "33%"}}>
             <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Provider</InputLabel>
+            <InputLabel id="demo-simple-select-label">Ofruesit e shërbimit</InputLabel>
             <Select
                 multiple
                 labelId="demo-simple-select-label"

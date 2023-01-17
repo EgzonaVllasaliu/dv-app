@@ -38,8 +38,6 @@ interface Props {
 }
 
 export const ISPGraph = (props : Props) => {
-    // console.log("From Graphs ---::::::::",props.providers)
-    console.log("Props From Graphs ---::::::::",props)
     const chartRef = useRef<ChartJS>(null);
     const [labels, setLabels] = useState([""])
     const colors = [
@@ -136,14 +134,14 @@ export const ISPGraph = (props : Props) => {
         promise_array.shift();
 
         Promise.all(promise_array).then(values => {
-          console.log('Values from Promise All:',values)
+          
           let chartDatasets : typeof chartData.datasets = [];
           values.forEach((val, index) => {
             let val_data : number[] = [];
-            // console.log('block block::'+props.comparison+':::::')
+            
             val.data.data.forEach(block => {
               if((block as any)[props.comparison] === ""){
-                console.log("Empyt Empty")
+                
                 val_data.push(0.001)
               }
               else {
@@ -183,10 +181,10 @@ export const ISPGraph = (props : Props) => {
             labels,
             datasets:chartDatasets
           }) 
-          console.log('ChartData',{
-            labels,
-            datasets:chartDatasets
-          });
+          // console.log('ChartData',{
+          //   labels,
+          //   datasets:chartDatasets
+          // });
         })
 
       })
@@ -194,7 +192,7 @@ export const ISPGraph = (props : Props) => {
 
 
 
-    return(<>
+    return(<div style={{marginTop:"10px"}}>
           <Chart ref={chartRef} type='bar' data={data1} />
-          </>)
+          </div>)
 }

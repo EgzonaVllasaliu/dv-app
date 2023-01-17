@@ -44,19 +44,13 @@ const ISP: FC = (): ReactElement => {
   
 
   return(
-    <>
-    <h1>ISP</h1>
-    <ISPProviders parentCallback={setSelectedProviders} />
-    <ChooseComparisonType parentCallback={setSelectedComparison}/>
-    <ChooseTimeline parentCallback1={handleSetTimeFrom} parentCallback2={handleSetTimeTo}/>
-    {/* <TeHyrat providers={providers}/> */}
-    <ISPGraph comparison={comparisons+''} providers={[...providers]} timeFrom={timeFrom} timeTo={timeTo}/>
-
-    {/* <Telefonia />
-    <NdarjaPerdoruesve />
-    <NdarjaTregut />
-    <ShperndarjaPerdoruesve /> */}
-  </>
+    <div style={{marginTop:"30px"}}>
+      <h1>ISP</h1>
+      <ChooseComparisonType parentCallback={setSelectedComparison}/>
+      <ISPProviders parentCallback={setSelectedProviders} />
+      <ChooseTimeline parentCallback1={handleSetTimeFrom} parentCallback2={handleSetTimeTo}/>
+      <ISPGraph comparison={comparisons+''} providers={[...providers]} timeFrom={timeFrom} timeTo={timeTo}/>
+    </div>
   )
   };
 
