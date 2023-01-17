@@ -99,62 +99,63 @@ export const ChooseTimeline = (props : Props) => {
     return (
       <div style={{ display : "flex", alignItems : 'center', justifyContent : 'center', flexDirection : 'row',marginTop:"30px"}}>
         {/* <h1>{props.name}</h1> */}
-        <div style={{width : "33%",marginRight:"15%"}}>
-            <FormControl style={{width : "45%", marginRight:"10%"} }>
-            <InputLabel id="demo-simple-select-label2">Tre Mujori:</InputLabel>
-            <Select
-                labelId="demo-simple-select-label2"
-                id="demo-simple-select"
-                value={fromQuarter}
-                
-                label="Comparison Type"
-                onChange={handleFromQuarterChange}
-            >
-
-                <MenuItem disabled value="">
-                <em>Placeholder</em>
-                </MenuItem>
-                {quarters.map((name) => (
-                <MenuItem
-                    key={name}
-                    value={name}
-                    // style={getStyles(name, personName, theme)}
+        <div style={{width : "33%",marginRight:"15%", display: "flex", justifyContent:'center'}}>
+            <h3 style={{width:"16%"}}>Prej</h3> 
+            <FormControl style={{width : "37%", marginRight:"10%"} }>
+                <InputLabel id="demo-simple-select-label2">Tre Mujori:</InputLabel>
+                <Select
+                    labelId="demo-simple-select-label2"
+                    id="demo-simple-select"
+                    value={fromQuarter}
+                    
+                    label="Comparison Type"
+                    onChange={handleFromQuarterChange}
                 >
-                    {name}
-                </MenuItem>
-                ))}  
-            </Select>
-            
+
+                    <MenuItem disabled value="">
+                    <em>Placeholder</em>
+                    </MenuItem>
+                    {quarters.map((name) => (
+                    <MenuItem
+                        key={name}
+                        value={name}
+                        // style={getStyles(name, personName, theme)}
+                    >
+                        {name}
+                    </MenuItem>
+                    ))}  
+                </Select>
             </FormControl >
-            <FormControl style={{width : "45%"}}>
-            <InputLabel id="demo-simple-select-label3">Viti: </InputLabel>
-            <Select
-                labelId="demo-simple-select-label3"
-                id="demo-simple-select"
-                value={fromYear}
-                
-                label="Comparison Type"
-                onChange={handleFromYearChange}
-            >
-
-                <MenuItem disabled value="">
-                <em>Placeholder</em>
-                </MenuItem>
-                {years.map((name) => (
-                <MenuItem
-                    key={name}
-                    value={name}
-                    // style={getStyles(name, personName, theme)}
-                >
-                    {name}
-                </MenuItem>
-                ))}  
-            </Select>
             
+            <FormControl style={{width : "37%"}}>
+                <InputLabel id="demo-simple-select-label3">Viti: </InputLabel>
+                <Select
+                    labelId="demo-simple-select-label3"
+                    id="demo-simple-select"
+                    value={fromYear}
+                    
+                    label="Comparison Type"
+                    onChange={handleFromYearChange}
+                >
+
+                    <MenuItem disabled value="">
+                    <em>Placeholder</em>
+                    </MenuItem>
+                    {years.map((name) => (
+                    <MenuItem
+                        key={name}
+                        value={name}
+                        // style={getStyles(name, personName, theme)}
+                    >
+                        {name}
+                    </MenuItem>
+                    ))}  
+                </Select>
             </FormControl>
         </div>
-        <div style={{width : "33%"}}>
-            <FormControl style={{width : "45%", marginRight: "10%"}}>
+        <div style={{width : "33%", display:"flex", alignItems: "center"}}>
+            <h4 style={{width: '16%'}}>Deri më</h4>
+            <FormControl style={{width : "37%", marginRight: "10%"}}>
             <InputLabel id="demo-simple-select-label4">Tre Mujori: </InputLabel>
             <Select
                 labelId="demo-simple-select-label4"
@@ -179,7 +180,7 @@ export const ChooseTimeline = (props : Props) => {
                 ))}  
             </Select>
             </FormControl>
-            <FormControl style={{width : "45%"}}>
+            <FormControl style={{width : "37%"}}>
             <InputLabel id="demo-simple-select-label5">Viti: </InputLabel>
             <Select
                 labelId="demo-simple-select-label5"
