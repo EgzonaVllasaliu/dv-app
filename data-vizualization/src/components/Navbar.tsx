@@ -55,7 +55,7 @@ export default function Navbar() {
               <MDBDropdownToggle color="light">ISP</MDBDropdownToggle>
               <MDBDropdownMenu>
                 <Link to="/isp">
-                  <MDBDropdownItem link>ISP</MDBDropdownItem>
+                  <MDBDropdownItem link>Karakteristikat e ISP-ve</MDBDropdownItem>
                 </Link>
               </MDBDropdownMenu>
             </MDBDropdown>
