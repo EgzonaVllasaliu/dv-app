@@ -9,6 +9,7 @@ import {
   PointElement,
   Tooltip
 } from 'chart.js';
+import zoomPlugin from 'chartjs-plugin-zoom';
 import { Chart } from 'react-chartjs-2';
 import faker from 'faker';
 import axios from 'axios';
@@ -27,7 +28,8 @@ ChartJS.register(
   PointElement,
   LineElement,
   Legend,
-  Tooltip
+  Tooltip,
+  zoomPlugin
 );
 
 interface Props {
@@ -97,6 +99,22 @@ export const ISPGraph = (props : Props) => {
         }
       ]
     };
+
+    const options : any =  {
+      plugins: {
+        zoom: {
+          zoom: {
+            wheel: {
+              enabled: true,
+            },
+            pinch: {
+              enabled: true
+            },
+            mode: 'x',
+          }
+        }
+      }
+    }
 
     
     const [data1, setData1] = useState(chartData);
@@ -193,6 +211,6 @@ export const ISPGraph = (props : Props) => {
 
 
     return(<div style={{marginTop:"10px"}}>
-          <Chart ref={chartRef} type='bar' data={data1} />
+          <Chart ref={chartRef} type='bar' options={options} data={data1} />
           </div>)
 }
