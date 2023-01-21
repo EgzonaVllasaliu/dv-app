@@ -57,6 +57,12 @@ export const ISPProviders = (props : Props) => {
                 <MenuItem disabled value="">
                 <em>Placeholder</em>
                 </MenuItem>
+                <MenuItem 
+                    key={"Totali"}
+                    value={"Totali"}
+                >
+                    Totali   
+                </MenuItem>
                 {provider.map((name) => (
                 <MenuItem
                     key={name}

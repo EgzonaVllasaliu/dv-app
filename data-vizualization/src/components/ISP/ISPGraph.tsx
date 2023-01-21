@@ -73,7 +73,7 @@ export const ISPGraph = (props : Props) => {
       "year": "",
       "income": "",
       "investments": "",
-      "indiviual_users": "",
+      "individual_users": "",
       "business_users": "",
       "total_users": ""
     
@@ -137,7 +137,7 @@ export const ISPGraph = (props : Props) => {
                 "year": "TM1 2017",
                 "income": "",
                 "investments": "",
-                "indiviual_users": "",
+                "individual_users": "",
                 "business_users": "",
                 "total_users": ""
             }]

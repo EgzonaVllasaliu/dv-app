@@ -12,7 +12,7 @@ export const ChooseTimeline = (props : Props) => {
     
     
     // const [selectedComparison, setSelectedComparison] = useState<string>("");
-    // const comparisons = ["income","investments","indiviual_users","business_users","total_users"]
+    // const comparisons = ["income","investments","individual_users","business_users","total_users"]
     const [fromTime, setFromTime] = useState<string>("TM1 2017");
     const [toTime, setToTime] = useState<string>("TM2 2022");
 

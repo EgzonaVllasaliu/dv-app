@@ -11,7 +11,7 @@ export const ChooseComparisonType = (props : Props) => {
     
     
     const [selectedComparison, setSelectedComparison] = useState<string>("");
-    const eng_comparisons = ["income","investments","indiviual_users","business_users","total_users"]
+    const eng_comparisons = ["income","investments","individual_users","business_users","total_users"]
     const comparisons = ["të hyrat", "investimet","përdoruesit individual","përdoruesit biznesor", "totali i përdouesve"]
     let temp_style = {
       color:"blue",
