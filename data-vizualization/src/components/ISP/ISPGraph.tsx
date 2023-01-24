@@ -17,6 +17,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { FormControl, InputLabel, SelectChangeEvent } from '@mui/material';
 import { IndexInfo, IndexType } from 'typescript';
+import { color } from '@mui/system';
 // import { isPropertySignature } from 'typescript';
 // import React from 'react';
 
@@ -42,12 +43,29 @@ interface Props {
 export const ISPGraph = (props : Props) => {
     const chartRef = useRef<ChartJS>(null);
     const [labels, setLabels] = useState([""])
+
+    // const generateColors = (l : Number) => {
+    //   let colors : string[] = [];
+    //   for(let i = 0; i < l; i++){
+    //     let r = Math.round(Math.random()*256);
+    //     let g = Math.round(Math.random()*256);
+    //     let b = Math.round(Math.random()*256);
+
+    //     let c = `rgb(${r},${g},${b})`
+
+    //     colors.push(c);
+    //   }
+
+    //   
+
+    //   return colors;
+    // }
     const colors = [
       "rgb(255, 200, 100)",
       "rgb(100, 150, 100)",
       "rgb(255, 30, 200)",
       "rgb(100, 60, 230)",
-      "rgb(255, 150, 250)",
+      "rgb(128, 76, 123)",
       "rgb(100, 120, 170)",
       "rgb(255, 200, 150)",
       "rgb(70, 200, 200)",
@@ -97,7 +115,8 @@ export const ISPGraph = (props : Props) => {
           fill: false,
           data: [1]
         }
-      ]
+      ],
+      // spanGaps: true
     };
 
     const options : any =  {
@@ -121,6 +140,9 @@ export const ISPGraph = (props : Props) => {
 
     
     useEffect(() => {
+      // setColors(generateColors(props.providers.length))
+
+
       axios.get('http://localhost:5000/investimet-isp/api/investimet/get_time')
       .then(response => {
         let time_array : string[] = response.data;
@@ -159,8 +181,8 @@ export const ISPGraph = (props : Props) => {
             
             val.data.data.forEach(block => {
               if((block as any)[props.comparison] === ""){
-                
-                val_data.push(0.001)
+                // val_data.push(0.001)
+                val_data.push(NaN)
               }
               else {
                 val_data.push(Number((block as any)[props.comparison]))  
@@ -168,14 +190,32 @@ export const ISPGraph = (props : Props) => {
               
             })
 
+            
+
             let indexTimeFrom = time_array.indexOf(props.timeFrom);
             let indexTimeTo = time_array.indexOf(props.timeTo);
 
-            val_data = val_data.filter((row, index) => {
+            // val_data = val_data.filter((row, index) => {
+            //   if(index >= indexTimeFrom && index <= indexTimeTo){
+            //     
+            //     return row;
+            //   }
+            // })
+
+            let temp_val_data : number[] = [...val_data];
+            val_data = [];
+
+            temp_val_data.forEach((element, index) => {
               if(index >= indexTimeFrom && index <= indexTimeTo){
-                return row;
+               val_data.push(element);
               }
             })
+
+            
+
+            
+      
+            
              chartDatasets.push(
                 {
                     type: 'line',
@@ -198,6 +238,7 @@ export const ISPGraph = (props : Props) => {
           setData1({
             labels,
             datasets:chartDatasets
+            // spanGaps: true
           }) 
           // console.log('ChartData',{
           //   labels,
