@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <MDBNavbar expand="lg" light bgColor="light">
       <MDBContainer fluid>
-        <MDBNavbarBrand href="/">ARKEP</MDBNavbarBrand>
+        <MDBNavbarBrand>ARKEP</MDBNavbarBrand>
         <MDBNavbarNav>
           <MDBNavbarItem>
             <MDBDropdown group className="shadow-0">
