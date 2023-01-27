@@ -288,7 +288,7 @@ export const ISPGraph = (props : Props) => {
           if((row.company_name as string).trim().toLowerCase() != 'total'
               && !(row.company_name as string).trim().toLowerCase().includes('sub total')){
                 
-              if(row[props.comparison]  > ((total as number)*0.05)){
+              if(row[props.comparison]  > ((total as number)*0.02)){
                 data_u.push(Number(row[props.comparison] as string))
                 label_u.push(row.company_name as string)
               } else {

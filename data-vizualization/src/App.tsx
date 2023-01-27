@@ -43,7 +43,7 @@ export const App = (): ReactElement => (
 
     <MDBContainer>
       <Routes>
-        <Route path="/" element={<TelefoniaFixe />} />
+        <Route path="/" element={<PerdoruesitPenetrimi />} />
         <Route path="/telefonia-fixe" element={<TelefoniaFixe />} />
         <Route path="/perdoruesit" element={<PerdoruesitPenetrimi />} />
         <Route path="/ndarja-tregut-perdoruesve" element={<NdarjaTregut />} />
