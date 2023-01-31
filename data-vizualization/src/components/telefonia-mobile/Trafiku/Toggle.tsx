@@ -17,6 +17,44 @@ export const Toggle = () => {
 
   return (
     <div>
+      <div style={{ display: 'flex', alignItems: 'center', marginTop: 30, marginLeft: 12 }}>
+        <Link to="/telefonia-mobile/trafiku/hyrje" id={'6'}>
+          <MDBBtn outline className="mx-2">
+            Hyrës
+          </MDBBtn>
+        </Link>
+        <Link to="/telefonia-mobile/trafiku/dalje" id={'7'}>
+          <MDBBtn outline className="mx-2">
+            Dalës
+          </MDBBtn>
+        </Link>
+        <Link to="/telefonia-mobile/trafiku/brenda-rrjetit" id={'1'}>
+          <MDBBtn outline className="mx-2">
+            Brenda rrjetit
+          </MDBBtn>
+        </Link>
+        <Link to="/telefonia-mobile/trafiku/rrjeti-tjeter" id={'2'}>
+          <MDBBtn outline className="mx-2">
+            Jashtë rrjetit
+          </MDBBtn>
+        </Link>
+        <Link to="/telefonia-mobile/trafiku/rrjeti-nderkombetar" id={'3'}>
+          <MDBBtn outline className="mx-2">
+            Ndërkombëtar
+          </MDBBtn>
+        </Link>
+        <Link to="/telefonia-mobile/trafiku/rrjeti-fiks" id={'4'}>
+          <MDBBtn outline className="mx-2">
+            Rrjeti fiks
+          </MDBBtn>
+        </Link>
+        <Link to="/telefonia-mobile/trafiku/rrjeti-terminuar" id={'5'}>
+          <MDBBtn outline className="mx-2">
+            I terminuar
+          </MDBBtn>
+        </Link>
+      </div>
+
       <div style={{ display: 'flex', marginTop: 30, marginLeft: 20 }}>
         <div>
           <h6 style={{ marginLeft: 10 }}>PREJ: </h6>
@@ -73,43 +111,6 @@ export const Toggle = () => {
             </Select>
           </FormControl>
         </div>
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center', marginTop: 30, marginLeft: 12 }}>
-        <Link to="/telefonia-mobile/trafiku/hyrje" id={'6'}>
-          <MDBBtn outline className="mx-2">
-            Hyrës
-          </MDBBtn>
-        </Link>
-        <Link to="/telefonia-mobile/trafiku/dalje" id={'7'}>
-          <MDBBtn outline className="mx-2">
-            Dalës
-          </MDBBtn>
-        </Link>
-        <Link to="/telefonia-mobile/trafiku/brenda-rrjetit" id={'1'}>
-          <MDBBtn outline className="mx-2">
-            Brenda rrjetit
-          </MDBBtn>
-        </Link>
-        <Link to="/telefonia-mobile/trafiku/rrjeti-tjeter" id={'2'}>
-          <MDBBtn outline className="mx-2">
-            Jashtë rrjetit
-          </MDBBtn>
-        </Link>
-        <Link to="/telefonia-mobile/trafiku/rrjeti-nderkombetar" id={'3'}>
-          <MDBBtn outline className="mx-2">
-            Ndërkombëtar
-          </MDBBtn>
-        </Link>
-        <Link to="/telefonia-mobile/trafiku/rrjeti-fiks" id={'4'}>
-          <MDBBtn outline className="mx-2">
-            Rrjeti fiks
-          </MDBBtn>
-        </Link>
-        <Link to="/telefonia-mobile/trafiku/rrjeti-terminuar" id={'5'}>
-          <MDBBtn outline className="mx-2">
-            I terminuar
-          </MDBBtn>
-        </Link>
       </div>
     </div>
   );

@@ -17,6 +17,24 @@ export const Toggle = () => {
 
   return (
     <div>
+      <div style={{ display: 'flex', alignItems: 'center', marginTop: 30, marginLeft: 12 }}>
+        <Link to="/telefonia-mobile/nr-perdoruesve/total" id={'1'}>
+          <MDBBtn outline className="mx-2">
+            Numri total i përdoruesve
+          </MDBBtn>
+        </Link>
+        <Link to="/telefonia-mobile/nr-perdoruesve/kontrate" id={'2'}>
+          <MDBBtn outline className="mx-2">
+            Përdoruesit me kontratë
+          </MDBBtn>
+        </Link>
+        <Link to="/telefonia-mobile/nr-perdoruesve/parapagim" id={'3'}>
+          <MDBBtn outline className="mx-2">
+            Përdoruesit me parapagim
+          </MDBBtn>
+        </Link>
+      </div>
+
       <div style={{ display: 'flex', marginTop: 30, marginLeft: 20 }}>
         <div>
           <h6 style={{ marginLeft: 10 }}>PREJ: </h6>
@@ -73,23 +91,6 @@ export const Toggle = () => {
             </Select>
           </FormControl>
         </div>
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center', marginTop: 30, marginLeft: 12 }}>
-        <Link to="/telefonia-mobile/nr-perdoruesve/total" id={'1'}>
-          <MDBBtn outline className="mx-2">
-            Numri total i përdoruesve
-          </MDBBtn>
-        </Link>
-        <Link to="/telefonia-mobile/nr-perdoruesve/kontrate" id={'2'}>
-          <MDBBtn outline className="mx-2">
-            Përdoruesit me kontratë
-          </MDBBtn>
-        </Link>
-        <Link to="/telefonia-mobile/nr-perdoruesve/parapagim" id={'3'}>
-          <MDBBtn outline className="mx-2">
-            Përdoruesit me parapagim
-          </MDBBtn>
-        </Link>
       </div>
     </div>
   );

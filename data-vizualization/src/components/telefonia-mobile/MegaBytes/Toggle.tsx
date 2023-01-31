@@ -19,6 +19,28 @@ export const Toggle = () => {
 
   return (
     <div>
+      <div style={{ display: 'flex', alignItems: 'center', marginTop: 30, marginLeft: 12 }}>
+        <Link to="/telefonia-mobile/megabytes/total" id={'1'}>
+          <MDBBtn outline className="mx-2">
+            Numri total i përdorimit
+          </MDBBtn>
+        </Link>
+        <Link to="/telefonia-mobile/megabytes/2g" id={'2'}>
+          <MDBBtn outline className="mx-2">
+            Totali për 2g
+          </MDBBtn>
+        </Link>
+        <Link to="/telefonia-mobile/megabytes/3g" id={'3'}>
+          <MDBBtn outline className="mx-2">
+            Totali për 3g
+          </MDBBtn>
+        </Link>
+        <Link to="/telefonia-mobile/megabytes/lte" id={'4'}>
+          <MDBBtn outline className="mx-2">
+            Totali për 4g/LTE
+          </MDBBtn>
+        </Link>
+      </div>
       <div style={{ display: 'flex', marginTop: 30, marginLeft: 20 }}>
         <div>
           <h6 style={{ marginLeft: 10 }}>PREJ: </h6>
@@ -75,28 +97,6 @@ export const Toggle = () => {
             </Select>
           </FormControl>
         </div>
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center', marginTop: 30, marginLeft: 12 }}>
-        <Link to="/telefonia-mobile/megabytes/total" id={'1'}>
-          <MDBBtn outline className="mx-2">
-            Numri total i përdorimit
-          </MDBBtn>
-        </Link>
-        <Link to="/telefonia-mobile/megabytes/2g" id={'2'}>
-          <MDBBtn outline className="mx-2">
-            Totali për 2g
-          </MDBBtn>
-        </Link>
-        <Link to="/telefonia-mobile/megabytes/3g" id={'3'}>
-          <MDBBtn outline className="mx-2">
-            Totali për 3g
-          </MDBBtn>
-        </Link>
-        <Link to="/telefonia-mobile/megabytes/lte" id={'4'}>
-          <MDBBtn outline className="mx-2">
-            Totali për 4g/LTE
-          </MDBBtn>
-        </Link>
       </div>
     </div>
   );
