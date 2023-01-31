@@ -30,7 +30,7 @@ export const Penetrimi: FC = () => {
   try {
     useEffect(() => {
       axios
-        .get('http://localhost:5000/telefonia-fixe/Telefoniafikse')
+        .get('https://dv-arkep.vercel.app/telefonia-fixe/Telefoniafikse')
         .then((res_1) => {
           setLabels(res_1.data.item.data[0]);
           setPenetrimi(res_1.data.item.data[2]);

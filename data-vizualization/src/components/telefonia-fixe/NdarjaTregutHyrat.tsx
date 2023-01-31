@@ -67,7 +67,7 @@ export const NdarjaTregutHyrat: FC = () => {
   try {
     useEffect(() => {
       axios
-        .get('http://localhost:5000/telefonia-fixe/NdarjaTregut-tehyrat')
+        .get('https://dv-arkep.vercel.app/telefonia-fixe/NdarjaTregut-tehyrat')
         .then((res_1) => {
           setLabelsData(res_1.data.item.data[0]);
           setTelekomiData(res_1.data.item.data[1]);

@@ -168,7 +168,7 @@ export const ISPGraph = (props : Props) => {
       // setColors(generateColors(props.providers.length))
 
 
-      axios.get('http://localhost:5000/investimet-isp/api/investimet/get_time')
+      axios.get('https://dv-arkep.vercel.app/investimet-isp/api/investimet/get_time')
       .then(response => {
         let time_array : string[] = response.data;
         let labels : string [] = response.data;
@@ -194,7 +194,7 @@ export const ISPGraph = (props : Props) => {
         props.providers.forEach(provider => {
           
 
-          promise_array.push(axios.get(`http://localhost:5000/investimet-isp/api/investimet/all_data/${provider}`))
+          promise_array.push(axios.get(`https://dv-arkep.vercel.app/investimet-isp/api/investimet/all_data/${provider}`))
         });
         promise_array.shift();
 
@@ -271,7 +271,7 @@ export const ISPGraph = (props : Props) => {
 
       })
 
-      axios.get(`http://localhost:5000/investimet-isp/api/investimet/users/${props.pietime}`)
+      axios.get(`https://dv-arkep.vercel.app/investimet-isp/api/investimet/users/${props.pietime}`)
       .then((response) => {
         let data_u : number[] = [0];
         let label_u : string [] = ['Të tjera'];
