@@ -36,7 +36,7 @@ export function TeHyratEPergjithshme1216() {
     useEffect(() => {
       axios
         .get(
-          'https://dv-arkep.vercel.app/telefonia-mobile/api/sheet/Te_hyrat_pergjithshme_2012-2016'
+          'http://localhost:5000/telefonia-mobile/api/sheet/Te_hyrat_pergjithshme_2012-2016'
         )
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
@@ -141,7 +141,7 @@ export function TeHyratEPergjithshme1722() {
     useEffect(() => {
       axios
         .get(
-          'https://dv-arkep.vercel.app/telefonia-mobile/api/sheet/Te_hyrat_pergjithshme_2017-2022'
+          'http://localhost:5000/telefonia-mobile/api/sheet/Te_hyrat_pergjithshme_2017-2022'
         )
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);

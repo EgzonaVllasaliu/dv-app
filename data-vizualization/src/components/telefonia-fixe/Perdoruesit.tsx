@@ -33,7 +33,7 @@ export const Perdoruesit: FC = () => {
   try {
     useEffect(() => {
       axios
-        .get('https://dv-arkep.vercel.app/telefonia-fixe/Telefoniafikse')
+        .get('http://localhost:5000/telefonia-fixe/Telefoniafikse')
         .then((res_1) => {
           setLabels(res_1.data.item.data[0]);
           setPerdoruesit(res_1.data.item.data[1]);

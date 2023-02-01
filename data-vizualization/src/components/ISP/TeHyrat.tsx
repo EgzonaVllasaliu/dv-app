@@ -56,32 +56,32 @@ export const TeHyrat = (props: Props) => {
   try {
     useEffect(() => {
       axios
-        .get('https://dv-arkep.vercel.app/investimet-isp/api/investimet/get_time')
+        .get('http://localhost:5000/investimet-isp/api/investimet/get_time')
         .then((response) => {
           // labels.push(response.data);
           let labels = [...response.data];
           setLabels(labels);
 
           axios
-            .get('https://dv-arkep.vercel.app/investimet-isp/api/investimet/get_operators')
+            .get('http://localhost:5000/investimet-isp/api/investimet/get_operators')
             .then((response) => {
               setProvider(response.data);
             });
 
           axios
-            .get('https://dv-arkep.vercel.app/investimet-isp/api/investimet/all_data/kujtesa')
+            .get('http://localhost:5000/investimet-isp/api/investimet/all_data/kujtesa')
             .then((res_1) => {
               axios
-                .get('https://dv-arkep.vercel.app/investimet-isp/api/investimet/all_data/ipko')
+                .get('http://localhost:5000/investimet-isp/api/investimet/all_data/ipko')
                 .then((res_2) => {
                   axios
                     .get(
-                      'https://dv-arkep.vercel.app/investimet-isp/api/investimet/all_data/telekomi i kosovës'
+                      'http://localhost:5000/investimet-isp/api/investimet/all_data/telekomi i kosovës'
                     )
                     .then((res_3) => {
                       axios
                         .get(
-                          'https://dv-arkep.vercel.app/investimet-isp/api/investimet/all_data/artmotion'
+                          'http://localhost:5000/investimet-isp/api/investimet/all_data/artmotion'
                         )
                         .then((res_4) => {
                           console.log('Request Data : ', res_1);

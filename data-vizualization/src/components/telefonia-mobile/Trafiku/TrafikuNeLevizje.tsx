@@ -32,7 +32,7 @@ export function IncomingTraffic() {
   try {
     useEffect(() => {
       axios
-        .get('https://dv-arkep.vercel.app/telefonia-mobile/api/sheet/Incoming_traffic')
+        .get('http://localhost:5000/telefonia-mobile/api/sheet/Incoming_traffic')
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setValaValues(res_1.data.sheet.data[1]);
@@ -105,7 +105,7 @@ export function OutgoingTraffic() {
   try {
     useEffect(() => {
       axios
-        .get('https://dv-arkep.vercel.app/telefonia-mobile/api/sheet/Outgoing_traffic')
+        .get('http://localhost:5000/telefonia-mobile/api/sheet/Outgoing_traffic')
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setValaValues(res_1.data.sheet.data[1]);

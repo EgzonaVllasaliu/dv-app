@@ -12,7 +12,7 @@ export function TrafikuBrendaRrjetit() {
   try {
     useEffect(() => {
       axios
-        .get('https://dv-arkep.vercel.app/telefonia-mobile/api/sheet/Totali_trafikut_MNO')
+        .get('http://localhost:5000/telefonia-mobile/api/sheet/Totali_trafikut_MNO')
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setbrendaRrjetit(res_1.data.sheet.data[1]);
@@ -79,7 +79,7 @@ export function TrafikuTjeter() {
   try {
     useEffect(() => {
       axios
-        .get('https://dv-arkep.vercel.app/telefonia-mobile/api/sheet/Totali_trafikut_MNO')
+        .get('http://localhost:5000/telefonia-mobile/api/sheet/Totali_trafikut_MNO')
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setTrafikuTjeter(res_1.data.sheet.data[2]);
@@ -149,7 +149,7 @@ export function TrafikuFiks() {
   try {
     useEffect(() => {
       axios
-        .get('https://dv-arkep.vercel.app/telefonia-mobile/api/sheet/Totali_trafikut_MNO')
+        .get('http://localhost:5000/telefonia-mobile/api/sheet/Totali_trafikut_MNO')
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setTrafikuFiks(res_1.data.sheet.data[3]);
@@ -219,7 +219,7 @@ export function TrafikuNderkombetar() {
   try {
     useEffect(() => {
       axios
-        .get('https://dv-arkep.vercel.app/telefonia-mobile/api/sheet/Totali_trafikut_MNO')
+        .get('http://localhost:5000/telefonia-mobile/api/sheet/Totali_trafikut_MNO')
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setTrafikuNderkombetar(res_1.data.sheet.data[4]);
@@ -289,7 +289,7 @@ export function TrafikuTerminuar() {
   try {
     useEffect(() => {
       axios
-        .get('https://dv-arkep.vercel.app/telefonia-mobile/api/sheet/Totali_trafikut_terminuar')
+        .get('http://localhost:5000/telefonia-mobile/api/sheet/Totali_trafikut_terminuar')
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setTrafikuTerminuar(res_1.data.sheet.data[4]);

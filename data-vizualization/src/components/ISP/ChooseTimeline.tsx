@@ -94,13 +94,13 @@ export const ChooseTimeline = (props : Props) => {
     };
 
     useEffect(() => {
-        axios.get("https://dv-arkep.vercel.app/investimet-isp/api/investimet/get_time")
+        axios.get("http://localhost:5000/investimet-isp/api/investimet/get_time")
         .then(response => {
             setTimeline(response.data)
             // console.log("GET Timeline", response)
         });
 
-        axios.get("https://dv-arkep.vercel.app/investimet-isp/api/investimet/get_years")
+        axios.get("http://localhost:5000/investimet-isp/api/investimet/get_years")
         .then(response => {
             setYears(response.data)
             // console.log("GET Timeline", response)

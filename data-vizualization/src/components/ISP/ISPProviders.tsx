@@ -25,7 +25,7 @@ export const ISPProviders = (props: Props) => {
 
   useEffect(() => {
     axios
-      .get('https://dv-arkep.vercel.app/investimet-isp/api/investimet/get_operators')
+      .get('http://localhost:5000/investimet-isp/api/investimet/get_operators')
       .then((response) => {
         setProvider(response.data);
       });

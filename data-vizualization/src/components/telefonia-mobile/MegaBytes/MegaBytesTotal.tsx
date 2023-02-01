@@ -33,7 +33,7 @@ export function MegaBytesTotal() {
   try {
     useEffect(() => {
       axios
-        .get('https://dv-arkep.vercel.app/telefonia-mobile/api/sheet/MBB_Total')
+        .get('http://localhost:5000/telefonia-mobile/api/sheet/MBB_Total')
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setValaValues(res_1.data.sheet.data[1]);

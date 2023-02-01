@@ -34,7 +34,7 @@ export function NumriPerdoruesveKontrate() {
   try {
     useEffect(() => {
       axios
-        .get('https://dv-arkep.vercel.app/telefonia-mobile/api/sheet/Numri_perdoruesve_me_kontrate')
+        .get('http://localhost:5000/telefonia-mobile/api/sheet/Numri_perdoruesve_me_kontrate')
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setValaValues(res_1.data.sheet.data[1]);

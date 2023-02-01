@@ -34,7 +34,7 @@ export function NumriPerdoruesveParapagim() {
     useEffect(() => {
       axios
         .get(
-          'https://dv-arkep.vercel.app/telefonia-mobile/api/sheet/Numri_perdoruesve_me_parapagim'
+          'http://localhost:5000/telefonia-mobile/api/sheet/Numri_perdoruesve_me_parapagim'
         )
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);

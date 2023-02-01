@@ -40,13 +40,13 @@ export const ChooseTimePieChart = (props: Props) => {
 
   useEffect(() => {
     axios
-      .get('https://dv-arkep.vercel.app/investimet-isp/api/investimet/get_time')
+      .get('http://localhost:5000/investimet-isp/api/investimet/get_time')
       .then((response) => {
         setTimeline(response.data);
       });
 
     axios
-      .get('https://dv-arkep.vercel.app/investimet-isp/api/investimet/get_years')
+      .get('http://localhost:5000/investimet-isp/api/investimet/get_years')
       .then((response) => {
         setYears(response.data);
       });
