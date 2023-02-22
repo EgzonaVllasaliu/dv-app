@@ -11,7 +11,7 @@ import {
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
 import axios from 'axios';
-import { Toggle } from './Toggle';
+import { useParams } from 'react-router-dom';
 
 ChartJS.register(
   LinearScale,
@@ -30,11 +30,16 @@ export function NumriPerdoruesveKontrate() {
   const [ipkoValues, setIpkoValues] = useState([]);
   const [zmobileValues, setZmobileValues] = useState([]);
   const [mtsValues, setMtsValues] = useState([]);
-
+  const {koha} = useParams();
+  
   try {
-    useEffect(() => {
+      useEffect(() => {
+        let link = 'http://localhost:5000/telefonia-mobile/api/sheet/Numri_perdoruesve_me_kontrate';
+        if(koha && koha !== '-;-')
+          link = 'http://localhost:5000/telefonia-mobile/api/sheet/Numri_perdoruesve_me_kontrate/'+ koha;
+          
       axios
-        .get('http://localhost:5000/telefonia-mobile/api/sheet/Numri_perdoruesve_me_kontrate')
+        .get(link)
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setValaValues(res_1.data.sheet.data[1]);

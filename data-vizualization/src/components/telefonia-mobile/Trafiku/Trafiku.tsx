@@ -2,17 +2,23 @@ import { useEffect, useRef, useState } from 'react';
 import { ArcElement, Chart as ChartJS, Legend, RadialLinearScale, Tooltip } from 'chart.js';
 import { PolarArea } from 'react-chartjs-2';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 export function TrafikuBrendaRrjetit() {
   const [labelsArray, setLabelsArray] = useState([]);
   const [brendaRrjetit, setbrendaRrjetit] = useState([]);
-
+  const {koha} = useParams();
+  
   try {
     useEffect(() => {
+      let link = 'http://localhost:5000/telefonia-mobile/api/sheet/Totali_trafikut_MNO';
+      if(koha && koha !== '-;-')
+        link = 'http://localhost:5000/telefonia-mobile/api/sheet/Totali_trafikut_MNO/'+ koha;
+        
       axios
-        .get('http://localhost:5000/telefonia-mobile/api/sheet/Totali_trafikut_MNO')
+        .get(link)
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setbrendaRrjetit(res_1.data.sheet.data[1]);

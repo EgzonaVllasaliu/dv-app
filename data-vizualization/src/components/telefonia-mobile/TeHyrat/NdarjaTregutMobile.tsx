@@ -3,6 +3,7 @@ import { Bar } from 'react-chartjs-2';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import zoomPlugin from 'chartjs-plugin-zoom';
+import { useParams } from 'react-router-dom';
 
 ChartJS.register(ArcElement, Tooltip, Legend, zoomPlugin);
 
@@ -12,11 +13,16 @@ export function NdarjaTregutMobile() {
   const [ipkoValues, setIpkoValues] = useState([]);
   const [zmobileValues, setZmobileValues] = useState([]);
   const [d3Values, setD3Values] = useState([]);
+  const {koha} = useParams();
 
   try {
     useEffect(() => {
+      let link = 'http://localhost:5000/telefonia-mobile/api/sheet/Ndarja_tregut_sipas_te_hyrave';
+      if(koha && koha !== '-;-')
+        link = 'http://localhost:5000/telefonia-mobile/api/sheet/Ndarja_tregut_sipas_te_hyrave/' + koha;
+        
       axios
-        .get('http://localhost:5000/telefonia-mobile/api/sheet/Ndarja_tregut_sipas_te_hyrave')
+        .get(link)
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setValaValues(res_1.data.sheet.data[1]);

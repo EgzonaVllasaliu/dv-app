@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 ChartJS.register(
   LinearScale,
@@ -29,13 +30,16 @@ export function NumriPerdoruesveParapagim() {
   const [ipkoValues, setIpkoValues] = useState([]);
   const [zmobileValues, setZmobileValues] = useState([]);
   const [mtsValues, setMtsValues] = useState([]);
-
+  const {koha} = useParams();
+  
   try {
     useEffect(() => {
+      let link = 'http://localhost:5000/telefonia-mobile/api/sheet/Numri_perdoruesve_me_parapagim';
+      if(koha && koha !== '-;-')
+        link = 'http://localhost:5000/telefonia-mobile/api/sheet/Numri_perdoruesve_me_parapagim/'+ koha;
+        
       axios
-        .get(
-          'http://localhost:5000/telefonia-mobile/api/sheet/Numri_perdoruesve_me_parapagim'
-        )
+        .get(link)
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setValaValues(res_1.data.sheet.data[1]);

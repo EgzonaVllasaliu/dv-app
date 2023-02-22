@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 ChartJS.register(
   LinearScale,
@@ -29,11 +30,16 @@ export function NumriPerdoruesveTotal() {
   const [ipkoValues, setIpkoValues] = useState([]);
   const [zmobileValues, setZmobileValues] = useState([]);
   const [mtsValues, setMtsValues] = useState([]);
-
+  const {koha} = useParams();
+  
   try {
     useEffect(() => {
+      let link = 'http://localhost:5000/telefonia-mobile/api/sheet/Numri_perdoruesve_total';
+      if(koha && koha !== '-;-')
+        link = 'http://localhost:5000/telefonia-mobile/api/sheet/Numri_perdoruesve_total/'+ koha;
+        
       axios
-        .get('http://localhost:5000/telefonia-mobile/api/sheet/Numri_perdoruesve_total')
+        .get(link)
         .then((res_1) => {
           setLabelsArray(res_1.data.sheet.data[0]);
           setValaValues(res_1.data.sheet.data[1]);
@@ -49,16 +55,17 @@ export function NumriPerdoruesveTotal() {
     console.log(error);
   }
 
-  const filteretLabels = labelsArray.filter(function (e) {
-    return e;
+  var filteredLabels = labelsArray.filter(function (el) {
+    return el != null && el != "null";
   });
+  
   const valaMainValues = valaValues.filter((_, i) => i > 0);
   const ipkoMainValues = ipkoValues.filter((_, i) => i > 0);
   const zmobileMainValues = zmobileValues.filter((_, i) => i > 0);
   const mtsMainValues = mtsValues.filter((_, i) => i > 0);
 
   const data = {
-    labels: filteretLabels,
+    labels: filteredLabels,
     datasets: [
       {
         type: 'line' as const,
@@ -67,7 +74,7 @@ export function NumriPerdoruesveTotal() {
         backgroundColor: 'rgb(255, 99, 132, 0.25)',
         borderWidth: 2,
         fill: true,
-        data: filteretLabels.map((value, index) => valaMainValues?.[index] ?? 0),
+        data: filteredLabels.map((value, index) => valaMainValues?.[index] ?? 0),
       },
       {
         type: 'line' as const,
@@ -76,7 +83,7 @@ export function NumriPerdoruesveTotal() {
         borderColor: 'rgb(75, 192, 192)',
         borderWidth: 2,
         fill: true,
-        data: filteretLabels.map((value, index) => ipkoMainValues?.[index] ?? 0),
+        data: filteredLabels.map((value, index) => ipkoMainValues?.[index] ?? 0),
       },
       {
         type: 'line' as const,
@@ -85,7 +92,7 @@ export function NumriPerdoruesveTotal() {
         borderColor: 'rgba(255, 206, 86)',
         borderWidth: 2,
         fill: true,
-        data: filteretLabels.map((value, index) => zmobileMainValues?.[index] ?? 0),
+        data: filteredLabels.map((value, index) => zmobileMainValues?.[index] ?? 0),
       },
       {
         type: 'line' as const,
@@ -94,7 +101,7 @@ export function NumriPerdoruesveTotal() {
         borderColor: 'rgba(0, 43, 144)',
         borderWidth: 2,
         fill: true,
-        data: filteretLabels.map((value, index) => mtsMainValues?.[index] ?? 0),
+        data: filteredLabels.map((value, index) => mtsMainValues?.[index] ?? 0),
       },
     ],
   };
