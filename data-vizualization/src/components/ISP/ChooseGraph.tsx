@@ -1,9 +1,8 @@
-import axios from 'axios';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { FormControl, InputLabel, SelectChangeEvent } from '@mui/material';
-import { FC, ReactComponentElement, useEffect, useState } from 'react';
-import { isConstructorDeclaration, sortAndDeduplicateDiagnostics } from 'typescript';
+import { useState } from 'react';
+
 interface Props {
     parentCallback : (val : string) => void 
 }
@@ -22,8 +21,7 @@ export const ChooseGraph = (props : Props) => {
       };
 
     return (
-      <div style={{ display : "flex", alignItems : 'center', justifyContent : 'center', flexDirection : 'column',marginTop:"30px"}}>
-        {/* <h1>{props.name}</h1> */}
+        <div style={{display: 'flex', alignItems: 'center', marginTop: 30, marginLeft: 18}}>
         <div style={{width : "33%"}}>
             <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label7">Zgjedh Grafin</InputLabel>

@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   BarElement,
   CategoryScale,
@@ -10,17 +10,8 @@ import {
   Tooltip
 } from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
-import { Chart, PolarArea } from 'react-chartjs-2';
-import faker from 'faker';
+import { Chart } from 'react-chartjs-2';
 import axios from 'axios';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import { dividerClasses, FormControl, InputLabel, SelectChangeEvent } from '@mui/material';
-import { IndexInfo, IndexType } from 'typescript';
-import { color } from '@mui/system';
-// import { isPropertySignature } from 'typescript';
-// import React from 'react';
-
 
 ChartJS.register(
   LinearScale,
@@ -235,12 +226,7 @@ export const ISPGraph = (props : Props) => {
                val_data.push(element);
               }
             })
-
-            
-
-            
-      
-            
+ 
              chartDatasets.push(
                 {
                     type: 'line',
@@ -265,10 +251,7 @@ export const ISPGraph = (props : Props) => {
             datasets:chartDatasets
             // spanGaps: true
           }) 
-
-          
         })
-
       })
 
       axios.get(`http://localhost:5000/investimet-isp/api/investimet/users/${props.pietime}`)
@@ -296,9 +279,7 @@ export const ISPGraph = (props : Props) => {
               }  
           }
         })
-
-        console.log(data_u[0],"Data from 0")
-        console.log(data_u, 'data uuu')
+        
         setData2({
           labels: label_u,
           datasets: [
@@ -339,9 +320,10 @@ export const ISPGraph = (props : Props) => {
       })
     },[props]);
 
-
     console.log(props.comparison, ' Comparison')
     return(<div style={{marginTop:"10px"}}>
+      
+      <h5 style={{marginLeft: 18, lineHeight: 2, marginTop: 8 }}>Paraqitja e statistikave</h5>
           {/* <Chart ref={chartRef} type='bar' options={options} data={data1} />
           {(props.comparison.toLowerCase() === 'individual_users' 
                 || props.comparison.toLowerCase() === 'business_users'

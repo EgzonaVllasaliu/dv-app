@@ -53,20 +53,11 @@ export const ChooseTimePieChart = (props: Props) => {
   }, []);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row',
-        marginTop: '30px',
-      }}
-    >
-      {/* <h1>{props.name}</h1> */}
-      <div style={{ width: '33%', marginRight: '15%', display: 'flex', justifyContent: 'center' }}>
-        <h3 style={{ width: '50%' }}>Periudha</h3>
-        <FormControl style={{ width: '37%', marginRight: '10%' }}>
-          <InputLabel id="demo-simple-select-label2">Tre Mujori:</InputLabel>
+    <div style={{display: 'flex', alignItems: 'center', marginTop: 18, marginLeft: 18}}>
+      <div>
+      <h6 style={{ marginLeft: 7 }}>PERIUDHA: </h6>
+        <FormControl style={{ minWidth: 175, marginTop: 8 }}>
+          <InputLabel id="demo-simple-select-label2">Zgjedh tre-mujorin</InputLabel>
           <Select
             labelId="demo-simple-select-label2"
             id="demo-simple-select"
@@ -89,9 +80,9 @@ export const ChooseTimePieChart = (props: Props) => {
           </Select>
         </FormControl>
 
-        <FormControl style={{ width: '37%' }}>
-          <InputLabel id="demo-simple-select-label3">Viti: </InputLabel>
-          <Select
+        <FormControl style={{ minWidth: 130, marginLeft: 18, marginTop: 8}}>
+          <InputLabel id="demo-simple-select-label3">Zgjedh vitin</InputLabel>
+            <Select
             labelId="demo-simple-select-label3"
             id="demo-simple-select"
             value={fromYear}

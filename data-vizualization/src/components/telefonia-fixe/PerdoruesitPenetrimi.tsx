@@ -5,6 +5,7 @@ import { TeHyrat } from './TeHyrat';
 
 const PerdoruesitPenetrimi: FC = (): ReactElement => (
   <>
+    <h3 style={{marginLeft:"20px", marginTop: "30px"}}>Telefonia Fikse</h3>
     <Perdoruesit />
     <Penetrimi />
     <TeHyrat />

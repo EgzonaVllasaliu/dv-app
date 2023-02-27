@@ -55,20 +55,21 @@ export const Toggle = () => {
   }
 
   return (
-    <div>
-            <div style={{ display: 'flex', alignItems: 'center', marginTop: 30, marginLeft: 12 }}>
+    <div style={{marginTop:"30px"}}>
+      <h3 style={{marginLeft:"20px"}}>Telefonia Mobile</h3>
+      <div style={{ display: 'flex', alignItems: 'center', marginTop: 30, marginLeft: 12 }}>
         <Link to={`/telefonia-mobile/te-hyrat/ndarja-tregut/${fromQuarter}-${fromYear};${toQuarter}-${toYear}`} id={'1'} onClick={goToLinkNdarja}>
-          <MDBBtn outline className="mx-2">
+          <MDBBtn outline className="mx-2 p-2" style={{fontSize: '14px'}}>
             Ndarja e tregut
           </MDBBtn>
         </Link>
         <Link to={`/telefonia-mobile/te-hyrat/17-22/${fromQuarter}-${fromYear};${toQuarter}-${toYear}`} id={'2'} onClick={goToLink17}>
-          <MDBBtn outline className="mx-2">
+          <MDBBtn outline className="mx-2 p-2" style={{fontSize: '14px'}}>
             Të hyrat 2017-2022
           </MDBBtn>
         </Link>
         <Link to={`/telefonia-mobile/te-hyrat/12-16/${fromQuarter}-${fromYear};${toQuarter}-${toYear}`} id={'3'} onClick={goToLink12}>
-          <MDBBtn outline className="mx-2">
+          <MDBBtn outline className="mx-2 p-2" style={{fontSize: '14px'}}>
             Të hyrat 2012-2016
           </MDBBtn>
         </Link>
@@ -77,7 +78,7 @@ export const Toggle = () => {
       <div style={{ display: 'flex', marginTop: 30, marginLeft: 20 }}>
         <div>
           <h6 style={{ marginLeft: 10 }}>PREJ: </h6>
-          <FormControl style={{ minWidth: 175, marginLeft: 0 }}>
+          <FormControl style={{ minWidth: 175, marginLeft: 0, marginTop: 8 }}>
             <InputLabel id="demo-simple-select-label">Zgjedh tre-mujorin</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -93,7 +94,7 @@ export const Toggle = () => {
               ))}
             </Select>
           </FormControl>
-          <FormControl style={{ minWidth: 130, marginLeft: 18 }}>
+          <FormControl style={{ minWidth: 130, marginLeft: 18, marginTop: 8 }}>
             <InputLabel id="demo-simple-select-label">Zgjedh vitin</InputLabel>
             <Select labelId="demo-simple-select-label" id="demo-simple-select" label="Zgjedh-vitin">
               {years.map((name) => (
@@ -109,7 +110,7 @@ export const Toggle = () => {
 
         <div>
           <h6 style={{ marginLeft: 25 }}>DERI: </h6>
-          <FormControl style={{ minWidth: 175, marginLeft: 18 }}>
+          <FormControl style={{ minWidth: 175, marginLeft: 18, marginTop: 8}}>
             <InputLabel id="demo-simple-select-label">Zgjedh tre-mujorin</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -125,7 +126,7 @@ export const Toggle = () => {
               ))}
             </Select>
           </FormControl>
-          <FormControl style={{ minWidth: 130, marginLeft: 18 }}>
+          <FormControl style={{ minWidth: 130, marginLeft: 18, marginTop: 8 }}>
             <InputLabel id="demo-simple-select-label">Zgjedh vitin</InputLabel>
             <Select labelId="demo-simple-select-label" id="demo-simple-select" label="Zgjedh-vitin">
               {years.map((name) => (

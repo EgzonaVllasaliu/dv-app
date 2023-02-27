@@ -6,15 +6,7 @@ import { ChooseComparisonType } from './ChooseComparisonType';
 import { ChooseTimeline } from './ChooseTimeline';
 import { ChooseGraph } from './ChooseGraph';
 import { ChooseTimePieChart } from './ChooseTimePieChart';
-// import ISPGraph from './ISPGraph';
-// import ISPProviders from './ISPProviders';
 import { useSearchParams } from 'react-router-dom';
-// import { Telefonia } from './Telefonia';
-// import { NdarjaPerdoruesve } from './NdarjaPerdoruesve';
-// import { ShperndarjaPerdoruesve } from './ShperndarjaPerdoruesve';
-// import { NdarjaTregut } from './NdarjaTregut';
-
-
 
 const ISP: FC = (): ReactElement => {
   const [providers, setProviders] = useState<string[]>([]);
@@ -57,7 +49,7 @@ const ISP: FC = (): ReactElement => {
   }
   return(
     <div style={{marginTop:"30px"}}>
-      <h1>ISP</h1>
+    <h3 style={{marginLeft:"20px"}}>Internet Service Provider</h3>
       <ChooseComparisonType parentCallback={setSelectedComparison}/>
       {(comparisons.toLowerCase() === 'individual_users' 
                 || comparisons.toLowerCase() === 'business_users'

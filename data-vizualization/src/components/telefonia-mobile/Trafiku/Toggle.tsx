@@ -49,40 +49,41 @@ export const Toggle = () => {
   }
 
   return (
-    <div>
+    <div style={{marginTop:"30px"}}>
+      <h3 style={{marginLeft:"20px"}}>Telefonia Mobile</h3>
       <div style={{ display: 'flex', alignItems: 'center', marginTop: 30, marginLeft: 12 }}>
         <Link to={`/telefonia-mobile/trafiku/hyrje/${fromQuarter}-${fromYear};${toQuarter}-${toYear}`} id={'1'} onClick={goToLinkHyrje}>
-          <MDBBtn outline className="mx-2">
+          <MDBBtn outline className="mx-2 p-2" style={{fontSize: '14px'}}>
             Hyrës
           </MDBBtn>
         </Link>
         <Link to={`/telefonia-mobile/trafiku/dalje/${fromQuarter}-${fromYear};${toQuarter}-${toYear}`} id={'2'} onClick={goToLinkDalje}>
-          <MDBBtn outline className="mx-2">
+          <MDBBtn outline className="mx-2 p-2" style={{fontSize: '14px'}}>
             Dalës
           </MDBBtn>
         </Link>
         <Link to={`/telefonia-mobile/trafiku/brenda-rrjetit/${fromQuarter}-${fromYear};${toQuarter}-${toYear}`} id={'3'}>
-          <MDBBtn outline className="mx-2">
+          <MDBBtn outline className="mx-2 p-2" style={{fontSize: '14px'}}>
             Brenda rrjetit
           </MDBBtn>
         </Link>
         <Link to={`/telefonia-mobile/trafiku/rrjeti-tjeter/${fromQuarter}-${fromYear};${toQuarter}-${toYear}`} id={'4'}>
-          <MDBBtn outline className="mx-2">
+          <MDBBtn outline className="mx-2 p-2" style={{fontSize: '14px'}}>
             Jashtë rrjetit
           </MDBBtn>
         </Link>
         <Link to={`/telefonia-mobile/trafiku/rrjeti-nderkombetar/${fromQuarter}-${fromYear};${toQuarter}-${toYear}`} id={'5'}>
-          <MDBBtn outline className="mx-2">
+          <MDBBtn outline className="mx-2 p-2" style={{fontSize: '14px'}}>
             Ndërkombëtar
           </MDBBtn>
         </Link>
         <Link to={`/telefonia-mobile/trafiku/rrjeti-fiks/${fromQuarter}-${fromYear};${toQuarter}-${toYear}`} id={'6'}>
-          <MDBBtn outline className="mx-2">
+          <MDBBtn outline className="mx-2 p-2" style={{fontSize: '14px'}}>
             Rrjeti fiks
           </MDBBtn>
         </Link>
         <Link to={`/telefonia-mobile/trafiku/rrjeti-terminuar/${fromQuarter}-${fromYear};${toQuarter}-${toYear}`} id={'7'}>
-          <MDBBtn outline className="mx-2">
+          <MDBBtn outline className="mx-2 p-2" style={{fontSize: '14px'}}>
             I terminuar
           </MDBBtn>
         </Link>
@@ -91,7 +92,7 @@ export const Toggle = () => {
       <div style={{ display: 'flex', marginTop: 30, marginLeft: 20 }}>
         <div>
           <h6 style={{ marginLeft: 10 }}>PREJ: </h6>
-          <FormControl style={{ minWidth: 175, marginLeft: 0 }}>
+          <FormControl style={{ minWidth: 175, marginLeft: 0, marginTop: 8 }}>
             <InputLabel id="demo-simple-select-label">Zgjedh tre-mujorin</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -107,7 +108,7 @@ export const Toggle = () => {
               ))}
             </Select>
           </FormControl>
-          <FormControl style={{ minWidth: 130, marginLeft: 18 }}>
+          <FormControl style={{ minWidth: 130, marginLeft: 18, marginTop: 8 }}>
             <InputLabel id="demo-simple-select-label">Zgjedh vitin</InputLabel>
             <Select labelId="demo-simple-select-label" id="demo-simple-select" label="Zgjedh-vitin">
               {years.map((name) => (
@@ -123,7 +124,7 @@ export const Toggle = () => {
 
         <div>
           <h6 style={{ marginLeft: 25 }}>DERI: </h6>
-          <FormControl style={{ minWidth: 175, marginLeft: 18 }}>
+          <FormControl style={{ minWidth: 175, marginLeft: 18, marginTop: 8}}>
             <InputLabel id="demo-simple-select-label">Zgjedh tre-mujorin</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -139,7 +140,7 @@ export const Toggle = () => {
               ))}
             </Select>
           </FormControl>
-          <FormControl style={{ minWidth: 130, marginLeft: 18 }}>
+          <FormControl style={{ minWidth: 130, marginLeft: 18, marginTop: 8 }}>
             <InputLabel id="demo-simple-select-label">Zgjedh vitin</InputLabel>
             <Select labelId="demo-simple-select-label" id="demo-simple-select" label="Zgjedh-vitin">
               {years.map((name) => (

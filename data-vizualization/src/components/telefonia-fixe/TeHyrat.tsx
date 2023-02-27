@@ -62,7 +62,7 @@ export const TeHyrat: FC = () => {
 
   return (
     <div style={{ lineHeight: 10, padding: 20 }}>
-      <h5 style={{ margin: 0, lineHeight: 2 }}>Te hyrat e telefonise fixe</h5>
+      <h5 style={{ margin: 0, lineHeight: 2 }}>Te hyrat e telefonise fikse</h5>
       <Chart ref={chartRef} type="bar" data={data} />
     </div>
   );

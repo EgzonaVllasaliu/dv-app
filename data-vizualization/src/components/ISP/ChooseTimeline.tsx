@@ -2,17 +2,13 @@ import axios from 'axios';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { FormControl, InputLabel, SelectChangeEvent } from '@mui/material';
-import { FC, ReactComponentElement, useEffect, useState } from 'react';
-import { isConstructorDeclaration } from 'typescript';
+import { useEffect, useState } from 'react';
+
 interface Props {
     parentCallback1 : (val : string ) => void,
     parentCallback2 : (val : string ) => void
 }
 export const ChooseTimeline = (props : Props) => {
-    
-    
-    // const [selectedComparison, setSelectedComparison] = useState<string>("");
-    // const comparisons = ["income","investments","individual_users","business_users","total_users"]
     const [fromTime, setFromTime] = useState<string>("TM1 2017");
     const [toTime, setToTime] = useState<string>("TM2 2022");
 
@@ -97,33 +93,28 @@ export const ChooseTimeline = (props : Props) => {
         axios.get("http://localhost:5000/investimet-isp/api/investimet/get_time")
         .then(response => {
             setTimeline(response.data)
-            // console.log("GET Timeline", response)
         });
 
         axios.get("http://localhost:5000/investimet-isp/api/investimet/get_years")
         .then(response => {
             setYears(response.data)
-            // console.log("GET Timeline", response)
         })
     },[])
 
 
     return (
-      <div style={{ display : "flex", alignItems : 'center', justifyContent : 'center', flexDirection : 'row',marginTop:"30px"}}>
-        {/* <h1>{props.name}</h1> */}
-        <div style={{width : "33%",marginRight:"15%", display: "flex", justifyContent:'center'}}>
-            <h3 style={{width:"16%"}}>Prej</h3> 
-            <FormControl style={{width : "37%", marginRight:"10%"} }>
-                <InputLabel id="demo-simple-select-label2">Tre Mujori:</InputLabel>
+        <div style={{ display: 'flex', marginTop: 18}}>
+        <div>
+            <h6 style={{ marginLeft: 25 }}>PREJ: </h6>
+            <FormControl style={{ minWidth: 175, marginLeft: 18, marginTop: 8 }}>
+                <InputLabel id="demo-simple-select-label2">Zgjedh tre-mujorin</InputLabel>
                 <Select
                     labelId="demo-simple-select-label2"
                     id="demo-simple-select"
                     value={fromQuarter}
-                    
-                    label="Comparison Type"
+                    label="Zgjedh-tre-mujorin"
                     onChange={handleFromQuarterChange}
                 >
-
                     <MenuItem disabled value="">
                     <em>Placeholder</em>
                     </MenuItem>
@@ -138,9 +129,8 @@ export const ChooseTimeline = (props : Props) => {
                     ))}  
                 </Select>
             </FormControl >
-            
-            <FormControl style={{width : "37%"}}>
-                <InputLabel id="demo-simple-select-label3">Viti: </InputLabel>
+            <FormControl style={{ minWidth: 130, marginLeft: 18, marginTop: 8}}>
+            <InputLabel id="demo-simple-select-label3">Zgjedh vitin</InputLabel>
                 <Select
                     labelId="demo-simple-select-label3"
                     id="demo-simple-select"
@@ -165,10 +155,11 @@ export const ChooseTimeline = (props : Props) => {
                 </Select>
             </FormControl>
         </div>
-        <div style={{width : "33%", display:"flex", alignItems: "center"}}>
-            <h4 style={{width: '16%'}}>Deri më</h4>
-            <FormControl style={{width : "37%", marginRight: "10%"}}>
-            <InputLabel id="demo-simple-select-label4">Tre Mujori: </InputLabel>
+      <div style={{ display: 'flex'}}>
+        <div>
+            <h6 style={{ marginLeft: 25 }}>DERI: </h6>
+          <FormControl style={{ minWidth: 175, marginLeft: 18, marginTop: 8 }}>
+            <InputLabel id="demo-simple-select-label4">Zgjedh tre-mujorin</InputLabel>
             <Select
                 labelId="demo-simple-select-label4"
                 id="demo-simple-select"
@@ -192,8 +183,8 @@ export const ChooseTimeline = (props : Props) => {
                 ))}  
             </Select>
             </FormControl>
-            <FormControl style={{width : "37%"}}>
-            <InputLabel id="demo-simple-select-label5">Viti: </InputLabel>
+            <FormControl style={{ minWidth: 130, marginLeft: 18, marginTop: 8 }}>
+            <InputLabel id="demo-simple-select-label5">Zgjedh vitin</InputLabel>
             <Select
                 labelId="demo-simple-select-label5"
                 id="demo-simple-select"
@@ -217,6 +208,7 @@ export const ChooseTimeline = (props : Props) => {
                 ))}  
             </Select>
             </FormControl>
+        </div>
         </div>
       </div>  
     );

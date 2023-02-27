@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -55,20 +55,21 @@ export const Toggle = () => {
   }
 
   return (
-    <div>
+    <div style={{marginTop:"30px"}}>
+      <h3 style={{marginLeft:"20px"}}>Telefonia Mobile</h3>
       <div style={{ display: 'flex', alignItems: 'center', marginTop: 30, marginLeft: 12 }}>
         <Link to={`/telefonia-mobile/nr-perdoruesve/total/${fromQuarter}-${fromYear};${toQuarter}-${toYear}`} id={'1'} onClick={goToLinkTotal}>
-          <MDBBtn outline className="mx-2">
+        <MDBBtn outline className="mx-2 p-2" style={{fontSize: '14px'}}>
             Numri total i përdoruesve
           </MDBBtn>
         </Link>
         <Link to={`/telefonia-mobile/nr-perdoruesve/kontrate/${fromQuarter}-${fromYear};${toQuarter}-${toYear}`} id={'2'} onClick={goToLinkKontrate}>
-          <MDBBtn outline className="mx-2">
+        <MDBBtn outline className="mx-2 p-2" style={{fontSize: '14px'}}>
             Përdoruesit me kontratë
           </MDBBtn>
         </Link>
         <Link to={`/telefonia-mobile/nr-perdoruesve/parapagim/${fromQuarter}-${fromYear};${toQuarter}-${toYear}`} id={'3'} onClick={goToLinkParapagim}>
-          <MDBBtn outline className="mx-2">
+        <MDBBtn outline className="mx-2 p-2" style={{fontSize: '14px'}}>
             Përdoruesit me parapagim
           </MDBBtn>
         </Link>
@@ -77,7 +78,7 @@ export const Toggle = () => {
       <div style={{ display: 'flex', marginTop: 30, marginLeft: 20 }}>
         <div>
           <h6 style={{ marginLeft: 10 }}>PREJ: </h6>
-          <FormControl style={{ minWidth: 175, marginLeft: 0 }}>
+          <FormControl style={{ minWidth: 175, marginLeft: 0, marginTop: 8 }}>
             <InputLabel id="demo-simple-select-label">Zgjedh tre-mujorin</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -93,7 +94,7 @@ export const Toggle = () => {
               ))}
             </Select>
           </FormControl>
-          <FormControl style={{ minWidth: 130, marginLeft: 18 }}>
+          <FormControl style={{ minWidth: 130, marginLeft: 18, marginTop: 8 }}>
             <InputLabel id="demo-simple-select-label">Zgjedh vitin</InputLabel>
             <Select labelId="demo-simple-select-label" id="demo-simple-select" label="Zgjedh-vitin">
               {years.map((name) => (
@@ -109,7 +110,7 @@ export const Toggle = () => {
 
         <div>
           <h6 style={{ marginLeft: 25 }}>DERI: </h6>
-          <FormControl style={{ minWidth: 175, marginLeft: 18 }}>
+          <FormControl style={{ minWidth: 175, marginLeft: 18, marginTop: 8}}>
             <InputLabel id="demo-simple-select-label">Zgjedh tre-mujorin</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -125,7 +126,7 @@ export const Toggle = () => {
               ))}
             </Select>
           </FormControl>
-          <FormControl style={{ minWidth: 130, marginLeft: 18 }}>
+          <FormControl style={{ minWidth: 130, marginLeft: 18, marginTop: 8 }}>
             <InputLabel id="demo-simple-select-label">Zgjedh vitin</InputLabel>
             <Select labelId="demo-simple-select-label" id="demo-simple-select" label="Zgjedh-vitin">
               {years.map((name) => (
