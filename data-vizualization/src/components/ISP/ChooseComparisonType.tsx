@@ -7,6 +7,15 @@ export const ChooseComparisonType = (props : Props) => {
     const [selectedComparison, setSelectedComparison] = useState<string>("");
     const eng_comparisons = ["income","investments","individual_users","business_users","total_users"]
     const comparisons = ["të hyrat", "investimet","përdoruesit individual","përdoruesit biznesor", "totali i përdouesve"]
+    
+    let default_style = {
+      color:'white',
+      border:'1px solid white',
+      margin:"auto",
+      borderRadius:"4px",
+      backgroundColor:"#007BFF"      
+    }
+    
     let temp_style = {
       color:'#007BFF',
       border:'1px solid #007BFF',
@@ -14,7 +23,8 @@ export const ChooseComparisonType = (props : Props) => {
       borderRadius:"4px",
       backgroundColor:"white"
     }
-    const [buttonStyle, setButtonStyle] = useState<any[]>([temp_style, temp_style, temp_style, temp_style, temp_style])
+    
+    const [buttonStyle, setButtonStyle] = useState<any[]>([default_style, temp_style, temp_style, temp_style, temp_style])
     
     const handleComparisonChange = (event: SelectChangeEvent<typeof selectedComparison>) => {
         const {

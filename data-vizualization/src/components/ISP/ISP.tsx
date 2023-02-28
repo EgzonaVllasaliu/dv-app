@@ -10,7 +10,7 @@ import { useSearchParams } from 'react-router-dom';
 
 const ISP: FC = (): ReactElement => {
   const [providers, setProviders] = useState<string[]>(["Totali"]);
-  const [comparisons,setComparisons] = useState<string>("");
+  const [comparisons,setComparisons] = useState<string>("income");
   const [timeFrom, setTimeFrom] = useState<string>("TM1 2017")
   const [timeTo, setTimeTo] = useState<string>("TM2 2022")
   const [graph, setGraph] = useState<string>("lakore")
