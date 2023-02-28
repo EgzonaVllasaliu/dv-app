@@ -9,7 +9,7 @@ interface Props {
 }
 export const ISPProviders = (props: Props) => {
   const [provider, setProvider] = useState<string[]>([]);
-  const [selectedProvider, setSelectedProvider] = useState<string[]>([]);
+  const [selectedProvider, setSelectedProvider] = useState<string[]>(["Totali"]);
 
   const handleProviderChange = (event: SelectChangeEvent<typeof selectedProvider>) => {
     const {

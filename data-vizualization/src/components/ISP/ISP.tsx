@@ -9,7 +9,7 @@ import { ChooseTimePieChart } from './ChooseTimePieChart';
 import { useSearchParams } from 'react-router-dom';
 
 const ISP: FC = (): ReactElement => {
-  const [providers, setProviders] = useState<string[]>([]);
+  const [providers, setProviders] = useState<string[]>(["Totali"]);
   const [comparisons,setComparisons] = useState<string>("");
   const [timeFrom, setTimeFrom] = useState<string>("TM1 2017")
   const [timeTo, setTimeTo] = useState<string>("TM2 2022")
