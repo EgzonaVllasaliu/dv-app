@@ -53,6 +53,22 @@ export const Perdoruesit: FC = () => {
   //   const penetrimi_data = penetrimi.filter((_, i) => i > 0);
   //   const te_hyrat_data = teHyrat.filter((_, i) => i > 0);
 
+  const options: any = {
+    plugins: {
+      zoom: {
+        zoom: {
+          wheel: {
+            enabled: true,
+          },
+          pinch: {
+            enabled: true,
+          },
+          mode: 'y',
+        },
+      },
+    },
+  };
+
   const data = {
     labels: filteretLabels,
     datasets: [
@@ -69,7 +85,7 @@ export const Perdoruesit: FC = () => {
   return (
     <div style={{ lineHeight: 10, padding: 20 }}>
       <h5 style={{ margin: 0, lineHeight: 2 }}>Perdoruesit e telefonise fikse</h5>
-      <Chart ref={chartRef} type="bar" data={data} />
+      <Chart ref={chartRef} type="bar" data={data} options={options}/>
     </div>
   );
 };

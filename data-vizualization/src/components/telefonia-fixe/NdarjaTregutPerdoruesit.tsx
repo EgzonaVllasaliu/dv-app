@@ -89,12 +89,28 @@ export const NdarjaTregutPerdoruesve: FC = () => {
   const kujtesa_data = kujtesa.filter((_, i) => i > 0);
   // const mts_data = mts?.filter((_, i) => i > 0);
 
+  const options: any = {
+    plugins: {
+      zoom: {
+        zoom: {
+          wheel: {
+            enabled: true,
+          },
+          pinch: {
+            enabled: true,
+          },
+          mode: 'y',
+        },
+      },
+    },
+  };
+
   const data = {
     labels: filteredLabels,
     datasets: [
       {
         type: 'line' as const,
-        label: filteredLabels[0],
+        label: 'Telekomi',
         borderColor: 'rgb(255, 99, 132)',
         borderWidth: 2,
         fill: false,
@@ -102,7 +118,7 @@ export const NdarjaTregutPerdoruesve: FC = () => {
       },
       {
         type: 'bar' as const,
-        label: filteredLabels[1],
+        label: 'Ipko',
         backgroundColor: 'rgb(75, 192, 192)',
         data: labels.map((value, index) => ipko_data[index]),
         borderColor: 'white',
@@ -110,7 +126,7 @@ export const NdarjaTregutPerdoruesve: FC = () => {
       },
       {
         type: 'bar' as const,
-        label: filteredLabels[2],
+        label: 'Kujtesa',
         backgroundColor: 'rgb(53, 162, 235)',
         data: labels.map((value, index) => kujtesa_data[index]),
       },
@@ -126,7 +142,7 @@ export const NdarjaTregutPerdoruesve: FC = () => {
   return (
     <div style={{ lineHeight: 10, padding: 20 }}>
       <h5 style={{ margin: 0, lineHeight: 2 }}>Ndarja e tregut te perdoruesve</h5>
-      <Chart ref={chartRef} type="bar" data={data} />
+      <Chart ref={chartRef} type="bar" data={data} options={options} />
     </div>
   );
 };

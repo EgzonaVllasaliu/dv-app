@@ -60,7 +60,7 @@ export function NdarjaTregutMobile() {
           pinch: {
             enabled: true,
           },
-          mode: 'xy',
+          mode: 'y',
         },
       },
     },

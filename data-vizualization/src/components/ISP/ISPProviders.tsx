@@ -32,14 +32,13 @@ export const ISPProviders = (props: Props) => {
   }, []);
 
   return (
-    <div style={{display: 'flex', alignItems: 'center', marginTop: 30, marginLeft: 18}}>
+    <div style={{display: 'flex', alignItems: 'center', marginTop: 30}}>
       <div style={{ width: '33%', minWidth:"130px" }}>
         <FormControl style={{ minWidth: 300, marginLeft: 18, marginTop: 8 }} fullWidth>
           <InputLabel id="demo-simple-select-label66">Ofruesit e shërbimit</InputLabel>
           <Select
             multiple
             label="Ofruesit e Shërbimit"
-            // labelId="demo-simple-select-label66"
             id="demo-simple-select"
             value={selectedProvider}
             renderValue={(selected) => {
@@ -49,7 +48,6 @@ export const ISPProviders = (props: Props) => {
 
               return selected.join(', ');
             }}
-            // label="ISP Provider"
             onChange={handleProviderChange}
           >
             <MenuItem disabled value="">
@@ -62,7 +60,6 @@ export const ISPProviders = (props: Props) => {
               <MenuItem
                 key={name}
                 value={name}
-                // style={getStyles(name, personName, theme)}
               >
                 {name}
               </MenuItem>

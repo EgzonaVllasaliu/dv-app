@@ -75,7 +75,7 @@ export function TeHyratEPergjithshme1216() {
           pinch: {
             enabled: true,
           },
-          mode: 'xy',
+          mode: 'y',
         },
       },
     },
@@ -183,7 +183,7 @@ export function TeHyratEPergjithshme1722() {
           pinch: {
             enabled: true,
           },
-          mode: 'xy',
+          mode: 'y',
         },
       },
     },
